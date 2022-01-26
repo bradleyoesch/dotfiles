@@ -10,6 +10,7 @@ LS_COLORS=$(is-supported "ls --color" --color -G)
 LS_TIMESTYLEISO=$(is-supported "ls --time-style=long-iso" --time-style=long-iso)
 LS_GROUPDIRSFIRST=$(is-supported "ls --group-directories-first" --group-directories-first)
 
+alias ls="ls --color=auto"
 alias l="ls -lahA $LS_COLORS $LS_TIMESTYLEISO $LS_GROUPDIRSFIRST"
 alias ll="ls -lA $LS_COLORS"
 alias lt="ls -lhAtr $LS_COLORS $LS_TIMESTYLEISO $LS_GROUPDIRSFIRST"
@@ -30,3 +31,10 @@ alias gb="git branch"
 alias gpom="git pull origin main"
 alias gs="git status"
 alias gss="git stash && git stash pop"
+
+# bash
+
+# Aliases to protect against overwriting
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
