@@ -5,10 +5,12 @@
 - clean: ['~']
 
 - link:
-    ~/.gitconfig: git/.gitconfig
-    ~/.zshrc: runcom/.zshrc
-    /Users/bradley/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings: applications/sublime/Preferences.sublime-settings
     /Users/bradley/Library/Application Support/Sublime Text/Packages/User/Default (OSX).sublime-keymap: applications/sublime/Default (OSX).sublime-keymap
+    /Users/bradley/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings: applications/sublime/Preferences.sublime-settings
+    ~/.aliases: shell/.aliases
+    ~/.functions: shell/.functions
+    ~/.gitconfig: git/.gitconfig
+    ~/.zshrc: shell/.zshrc
 
 - create:
     - ~/.vim/undo-history

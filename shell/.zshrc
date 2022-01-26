@@ -1,4 +1,11 @@
+# export PATH first
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:/opt/homebrew/bin:$PATH"
+
+# next, aliases and functions
+source ~/.aliases
+source ~/.functions
+
+
 
 # enable autocompletion of command
 autoload bashcompinit && bashcompinit
@@ -10,4 +17,3 @@ export NVM_DIR="$HOME/.nvm"
 
 # iterm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
