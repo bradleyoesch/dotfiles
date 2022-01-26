@@ -7,6 +7,8 @@
 - link:
     ~/.gitconfig: git/.gitconfig
     ~/.zshrc: runcom/.zshrc
+    /Users/bradley/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings: applications/sublime/Preferences.sublime-settings
+    /Users/bradley/Library/Application Support/Sublime Text/Packages/User/Default (OSX).sublime-keymap: applications/sublime/Default (OSX).sublime-keymap
 
 - create:
     - ~/.vim/undo-history
