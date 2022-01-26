@@ -1,0 +1,25 @@
+# 'brew tap'
+tap "homebrew/cask"
+
+# 'brew install'
+brew "git"
+brew "git-delta"
+brew "lnav"
+brew "pipenv"
+brew "tldr"
+brew "tree"
+brew "zsh"
+brew "zsh-autosuggestions"
+brew "zsh-history-substring-search"
+brew "zsh-syntax-highlighting"
+
+# 'brew install --cask'
+cask "dropbox"
+cask "folx"
+cask "google-chrome"
+cask "iterm2"
+cask "postman"
+cask "rectangle"
+cask "spotify"
+cask "sublime-text"
+cask "vlc"

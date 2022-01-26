@@ -44,6 +44,7 @@
 	ci = commit
 	co = checkout
 	contrib = shortlog --summary --numbered
+	cm = commit -m
 	cr = clone --recursive
 	df = diff --word-diff
 	diffc = diff --cached
