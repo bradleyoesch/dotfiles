@@ -10,7 +10,7 @@
     ~/.aliases: shell/.aliases
     ~/.functions: shell/.functions
     ~/.gitconfig: git/.gitconfig
-    ~/npm-init.sh: npm/npm-init.sh
+    ~/node-init.sh: npm/node-init.sh
     ~/.zshrc: shell/.zshrc
 
 - create:
