@@ -60,7 +60,11 @@ brew update
 brew bundle --file brew/Brewfile
 
 clog "Symlinking Sublime to subl..."
-sudo ln -sf /Users/bradley/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+sudo ln -sf ~/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+plog Done!
+
+clog "Symlinking VLC vlcrc settings..."
+sudo ln -sf ~/Library/Preferences/org.videolan.vlc/vlcrc ~/code/bradleyoesch/dotfiles/applications/vlc/vlcrc
 plog Done!
 
 

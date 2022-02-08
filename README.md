@@ -57,6 +57,43 @@ Run setup script:
 
 ## Applications
 
+```bash
+open ~/Applications
+```
+
+### Dropbox
+
+Setup
+
+### Folx
+
+Setup
+
+### Flux
+
+- Daytime - 4800K
+- Sunset - 3400K
+- Bedtime - 2000K
+
+### Google Chrome
+
+Setup google account
+
+#### Extensions
+
+- Hover Zoom+ - go through settings
+- LastPass - log in
+- OneTab - import tabs
+- RedditEnhancementSuite - import settings from Google Drive
+- SetupVPN - log in
+- Slapdash - log in
+- Stylebot - import settings from [`applications/chrome/stylebot.json`](applications/chrome/stylebot.json)
+- uBlock - import settings from [`applications/chrome/ublock.txt`](applications/chrome/ublock.txt)
+
+#### Apps
+
+- Postman - log in
+
 ### iTerm2
 
 Load iTerm2 settings:
@@ -67,7 +104,38 @@ Load iTerm2 settings:
 
 Preferences > Keys > Hotkey > cmd + \`
 
+### QuickLook
+
+Open the Quicklook directory and Right click > Show Package Contents > ... > MacOS > Right click > Open > Allow
+
+```bash
+open /Users/bradley/Library/QuickLook
+open ~/Applications # QLMarkdown
+```
+
+### Rectangle
+
+Import settings from [`applications/rectangle/rectangle.json`](applications/rectangle/rectangle.json)
+
+### Slapdash
+
+Log in
+
+### Spotify
+
+Log in, double check settings
+
 ### Sublime Text
+
+Settings should be copied for you already after installing.
+
+You can open from the terminal with `subl`:
+
+```bash
+subl ~/.zshrc
+```
+
+### VLC
 
 Settings should be copied for you already after installing.
 
