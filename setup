@@ -63,10 +63,9 @@ clog "Symlinking Sublime to subl..."
 sudo ln -sf ~/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
 plog Done!
 
-clog "Symlinking VLC vlcrc settings..."
-sudo ln -sf ~/Library/Preferences/org.videolan.vlc/vlcrc ~/code/bradleyoesch/dotfiles/applications/vlc/vlcrc
+clog "Updating VLC settings..."
+./applications/vlc/sync import
 plog Done!
-
 
 ln -sf ~/code/bradleyoesch/dotfiles ~/.dotfiles
 clog "Running install script..."

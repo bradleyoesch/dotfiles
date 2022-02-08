@@ -139,6 +139,18 @@ subl ~/.zshrc
 
 Settings should be copied for you already after installing.
 
+To import settings into VLC:
+
+```bash
+./applications/vlc/sync import
+```
+
+To import settings from VLC:
+
+```bash
+./applications/vlc/sync export
+```
+
 ## Installation
 
 This project uses [dotbot](https://github.com/anishathalye/dotbot) to manage the installation.
