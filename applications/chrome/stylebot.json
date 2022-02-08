@@ -1,0 +1,188 @@
+{
+  "comediansincarsgettingcoffee.com": {
+    "css": ".fb-comments-container {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.162-05:00",
+    "readability": false
+  },
+  "do512.com": {
+    "css": "div.ds-brand a img {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.162-05:00",
+    "readability": false
+  },
+  "juststream.live": {
+    "css": "#video_container {\n  width:100%;\n  margin: 0;\n}",
+    "enabled": true,
+    "modifiedTime": "2021-09-11T20:05:02.437-05:00",
+    "readability": false
+  },
+  "mail.google.com": {
+    "css": "/* task bar\n\n.nH.w-asV {\n  width: 1084px;\n}\n\n.brC-brG {\n  width: 225px;\n}\n\n*/\n\ndiv.nH.anT {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.162-05:00",
+    "readability": false
+  },
+  "quizlet.com": {
+    "css": "a.story {\n  display: none;\n}\n\ndiv.skyscraper.ad {\n  display: none;\n}\n\nsection.behind-the-scenes h3 {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.162-05:00",
+    "readability": false
+  },
+  "stackexchange.com": {
+    "css": "div.show-votes {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.162-05:00",
+    "readability": false
+  },
+  "stackoverflow.com": {
+    "css": "div.blue.remote.tagged {\n  display: none;\n}\n\ndiv.module {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.162-05:00",
+    "readability": false
+  },
+  "streamja.com": {
+    "css": "#header {\n  display: none;\n}\n\n.playerContainer {\n  margin: 0;\n  width: auto;\n  max-height: 100vh;\n}",
+    "enabled": true,
+    "modifiedTime": "2021-09-11T20:09:24.978-05:00",
+    "readability": false
+  },
+  "streamvi.com": {
+    "css": "nav.navbar.navbar-expand-md.navbar-light.fixed-top.bg-white {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.162-05:00",
+    "readability": false
+  },
+  "streamwo.com": {
+    "css": ".container.text-center.mt-1 {\n  max-width: 100%;\n}",
+    "enabled": true,
+    "modifiedTime": "2021-09-11T20:11:02.153-05:00",
+    "readability": false
+  },
+  "twitter.com": {
+    "css": "div.PromptbirdPrompt.PromptbirdPrompt--inline {\n  display: none;\n}\n\ndiv.Trends.module.trends {\n  display: none;\n}\n\ndiv.WhoToFollow.is-visible {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.162-05:00",
+    "readability": false
+  },
+  "writerduet.com": {
+    "css": "div.purchase_pro {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.162-05:00",
+    "readability": false
+  },
+  "www.avclub.com": {
+    "css": "div._3fuZ4Zij-D {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
+    "readability": false
+  },
+  "www.bonappetit.com": {
+    "css": ".cne-interlude-container, .review-section, .util-print-hide {\n  display: none;\n}\n\nbody.page-id-57ae48621b33404414975cc4::before {\n  content: 'less blueberrys, more cinnamon, more brown sugar, maybe pockets of topping, swirled instead of  spread evenly, could use less if it makes sense';\n}\n\ndiv.riser-header-wrapper {\n  display: none;\n}\n\ndiv.riser.expanded.ba-recirc-riser.ba-recirc-riser--minified {\n  display: none;\n}\n\ndiv.row.row--cm-nl {\n  display: none;\n}\n\ndiv.secondary-content {\n  display: none;\n}\n\ndiv.toggle-riser {\n  display: none;\n}\n\nfigure.cne-interlude-container-right-rail {\n  display:none;\n}",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
+    "readability": false
+  },
+  "www.businessinsider.com": {
+    "css": "div.right-rail {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
+    "readability": false
+  },
+  "www.buzzfeed.com": {
+    "css": "div.content {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
+    "readability": false
+  },
+  "www.clickhole.com": {
+    "css": "div.replies-wrapper.js_replies-wrapper {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
+    "readability": false
+  },
+  "www.dailymail.co.uk": {
+    "css": "div.beta {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
+    "readability": false
+  },
+  "www.facebook.com": {
+    "css": "/*\n// side rail\ndiv[role=\"complementary\"] .l9j0dhe7 {\n  display: none;\n}\n*/\n\ndiv.q5bimw55.gvuykj2m.rq0escxv.j83agx80.nvd5e08m.dlv3wnog.rl04r1d5.d76ob5m9.eg9m0zos.tu1s4ah4.cxgpxx05.rx6hrq12.tu18w1b4.ofs802cu.g0qnabr5.g2wf7z4h.dkue75c7.mb9wzai9 {\n  display: none;\n}\n\ndiv.rq0escxv.l9j0dhe7.du4w35lb.j83agx80.i1fnvgqd.bp9cbjyn.owycx6da.btwxx1t3.hv4rvrfc.dati1w0a.pybr56ya.dlv3wnog.rl04r1d5.enqfppq2.muag1w35 {\n  display: none;\n}\n\ndiv[aria-label=\"Stories\"] {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
+    "readability": false
+  },
+  "www.flickr.com": {
+    "css": "div.signup-footer.mini-footer.show {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
+    "readability": false
+  },
+  "www.free-tv-video-online.info": {
+    "css": "iframe {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
+    "readability": false
+  },
+  "www.hollywoodreporter.com": {
+    "css": "div.region.region-sidebar-second.column.sidebar {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
+    "readability": false
+  },
+  "www.huffingtonpost.com": {
+    "css": "section.rail {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
+    "readability": false
+  },
+  "www.imdb.com": {
+    "css": "div.aux-content-widget-2 {\n  display: none;\n}\n\ndiv.aux-content-widget-3.links.subnav.rhs-widget.tv-episodes {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
+    "readability": false
+  },
+  "www.investing.com": {
+    "css": "#abPopup {\n  display: none;\n}\n\nbody {\n  overflow: auto;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
+    "readability": false
+  },
+  "www.justinguitar.com": {
+    "css": "div.tab-content.main-tab-content.lesson__comments {\n  /* display: none; */\n}\n\ndiv.products {\n  display: none;\n}\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
+    "readability": false
+  },
+  "www.reddit.com": {
+    "css": "a.author.may-blank.id-t2_62jbl {\n  display: none;\n}\n\naside.read-next.active.fixed {\n  display: none;\n}\n\ndiv.commentingAs {\n  display: none;\n}\n\ndiv.s101m1tc-18.jFdhAq {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
+    "readability": false
+  },
+  "www.thesaurus.com": {
+    "css": "div.editorial-content-feed {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
+    "readability": false
+  },
+  "www.vulture.com": {
+    "css": "#tertiary {\n  display: none;\n}\n\naside.latest-news {\n  display: none;\n}\n\naside.related {\n  display: none;\n}\n\naside.related-stories {\n  display: none;\n}\n\naside.single-related-story {\n  display: none;\n}\n\ndiv.comments-link {\n  display: none;\n}\n\ndiv.coral-talk {\n  display: none;\n}\n\ndiv.modal.right-aligned {\n  display: none;\n}\n\ndiv.next a {\n  display: none;\n}\n\ndiv.prev a {\n  display: none;\n}\n\ndiv.tags {\n  display: none;\n}\n\nsection.tertiary {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
+    "readability": false
+  },
+  "www.wikiwand.com": {
+    "css": "div.inner {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
+    "readability": false
+  },
+  "www.youtube.com": {
+    "css": ".ytd-popup-container {\n  display: none;\n}\n\n/* free tv trial ad */\n\ndiv.style-scope.ytd-watch-next-secondary-results-renderer {\n  display: none;\n}\n\ndiv.watch-main-col {\n  width: 100%;\n}\n\nytd-item-section-renderer.style-scope.ytd-comments {\n  display: none;\n}\n\nytd-watch[theater] #pla-shelf.ytd-watch, ytd-watch[theater] #info.ytd-watch, ytd-watch[theater] #meta.ytd-watch, ytd-watch[theater] #ticket-shelf.ytd-watch, ytd-watch[theater] #comments.ytd-watch, ytd-watch[theater] #report.ytd-watch {\n  padding-right: 0;\n}",
+    "enabled": true,
+    "modifiedTime": "2022-01-08T23:10:07.088-06:00",
+    "readability": false
+  }
+}
