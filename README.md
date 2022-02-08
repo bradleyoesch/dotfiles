@@ -33,9 +33,12 @@ open https://github.com/nvm-sh/nvm#installing-and-updating
 nvm -v
 ```
 
-Install oh-my-zsh:
+Install zsh, oh-my-zsh:
 
 ```bash
+brew install zsh
+echo '/opt/homebrew/bin/zsh' | sudo tee -a /etc/shells > /dev/null
+chsh -s /opt/homebrew/bin/zsh
 open https://github.com/ohmyzsh/ohmyzsh#basic-installation
 rm ~/.zshrc
 ```
