@@ -52,7 +52,7 @@ cd dotfiles
 Run setup script:
 
 ```bash
-./setup
+./setup && source ~/.zshrc
 ```
 
 ## Applications
@@ -156,7 +156,7 @@ To import settings from VLC:
 This project uses [dotbot](https://github.com/anishathalye/dotbot) to manage the installation.
 
 ```bash
-./install
+./install && source ~/.zshrc
 ```
 
 ## Contents

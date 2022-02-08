@@ -21,6 +21,9 @@ alias la="ls -alh"
 # show with numbers
 alias ll="ls | cat -b"
 
+alias cdot="cd ~/code/bradleyoesch/dotfiles"
+alias cddot="cd ~/code/bradleyoesch/dotfiles"
+alias cd..="cd .."
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."

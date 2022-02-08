@@ -67,7 +67,6 @@ clog "Updating VLC settings..."
 ./applications/vlc/sync import
 plog Done!
 
-ln -sf ~/code/bradleyoesch/dotfiles ~/.dotfiles
 clog "Running install script..."
 ./install
 plog Done!
