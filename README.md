@@ -1,6 +1,6 @@
-# .dotfiles
+# dotfiles
 
-These are my dotfiles. Take anything you want, but at your own risk.
+These them there them dotfiles.
 
 ## New Computer Setup
 
@@ -61,9 +61,9 @@ Run setup script:
 
 Load iTerm2 settings:
 
-- [`applications/iterm2/keybindings.itermkeymap`](applications/iterm2/keybindings.itermkeymap).
-- [`applications/iterm2/monokai-bradley.itermcolors`](applications/iterm2/monokai-bradley.itermcolors).
-- [`applications/iterm2/profile.json`](applications/iterm2/profile.json).
+- [`applications/iterm2/keybindings.itermkeymap`](applications/iterm2/keybindings.itermkeymap)
+- [`applications/iterm2/monokai-bradley.itermcolors`](applications/iterm2/monokai-bradley.itermcolors)
+- [`applications/iterm2/profile.json`](applications/iterm2/profile.json)
 
 Preferences > Keys > Hotkey > cmd + \`
 
