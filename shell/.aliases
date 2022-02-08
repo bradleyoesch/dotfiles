@@ -4,27 +4,40 @@ alias aliases="alias | sed 's/=.*//'"
 alias functions="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
 alias paths='echo -e ${PATH//:/\\n}'
 
-# Directory listing/traversal
+###############
+#  directory  #
+###############
 
-alias ls="ls -Gp --color=auto"
-alias la="ls -a"
+# -1 : one perline
+# -F : trailing slash for directory names
+# -G : enable colorized
+alias ls="ls -1FG --color=auto"
+
+# -a : show hidden files/directories
+# -l : show size
+# -h : human readable size
+alias la="ls -alh"
+
+# show with numbers
 alias ll="ls | cat -b"
-alias lp="stat -c '%a %n' *"
 
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias -- -="cd -"
 
-# git
+#########
+#  git  #
+#########
 
 alias gb="git branch"
 alias gpom="git pull origin main"
 alias gs="git status"
 alias gss="git stash && git stash pop"
 
-# bash
+##########
+#  bash  #
+##########
 
 # Aliases to protect against overwriting
 alias cp='cp -i'

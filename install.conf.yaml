@@ -10,8 +10,10 @@
     ~/.aliases: shell/.aliases
     ~/.functions: shell/.functions
     ~/.gitconfig: git/.gitconfig
-    ~/node-init.sh: npm/node-init.sh
+    ~/.grep: shell/.grep
+    ~/.oh-my-zshrc: shell/.oh-my-zshrc
     ~/.zshrc: shell/.zshrc
+    ~/node-init: npm/node-init
 
 - create:
     - ~/.vim/undo-history

@@ -1,17 +1,18 @@
 # export PATH first
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:/opt/homebrew/bin:$PATH"
 
+# source the zshrc file created when installing oh-my-zshrc
+source ~/.oh-my-zshrc
+
 # set homebrew cask install dir
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 
 # next, aliases and functions
 source ~/.aliases
+source ~/.grep
 source ~/.functions
 
 
-
-# enable autocompletion of command
-autoload bashcompinit && bashcompinit
 
 # nvm installation added this for me
 export NVM_DIR="$HOME/.nvm"

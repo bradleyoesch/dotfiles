@@ -1,2 +1,9 @@
-npm install -g tldr
-npm install -g json
+CYAN='\033[0;36m'
+NC='\033[0m' # No Color
+
+declare -a packages=("json" "tldr")
+
+for val in ${packages[@]}; do
+  echo "${CYAN}>>>>> Installing ${val} <<<<<${NC}"
+  npm install -g $val
+done
