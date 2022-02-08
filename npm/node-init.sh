@@ -1,3 +1,6 @@
+# TODO:
+# - auto-sort imports
+
 # USAGE
 # ./scripts/npm-init.sh <path> <readme title> <description>
 
@@ -118,22 +121,25 @@ cat > .prettierrc.json <<- EOF
 EOF
 cat > .eslintrc.cjs <<- EOF
 module.exports = {
-  'env': {
-    'browser': true,
-    'es2021': true,
+  env: {
+    "browser": true,
+    "es2021": true,
   },
-  'extends': [
-    'google',
-    'prettier',
-    'plugin:prettier/recommended'
+  extends: [
+    "google",
+    "prettier",
+    "plugin:prettier/recommended"
   ],
-  'parserOptions': {
-    'ecmaVersion': 'latest',
-    'sourceType': 'module',
+  parserOptions: {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
   },
-  'plugins': [
-    'prettier'
+  plugins: [
+    "prettier"
   ],
+  rules: {
+    "camelcase": ["error", { "ignoreDestructuring": true }],
+  },
 };
 
 EOF
