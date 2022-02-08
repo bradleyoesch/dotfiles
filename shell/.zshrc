@@ -14,6 +14,9 @@ source ~/.functions
 
 
 
+# enable autocompletion of command
+autoload bashcompinit && bashcompinit
+
 # nvm installation added this for me
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

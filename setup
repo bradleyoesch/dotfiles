@@ -1,60 +1,70 @@
 #!/opt/homebrew/bin/zsh
 
+LGRN='\033[1;32m'
 CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 clog() {
   echo "${CYAN}>>>>> $1 <<<<<${NC}"
 }
+plog() {
+  echo "${LGRN}>>>>> $1 <<<<<${NC}"
+}
 
-chsh -s $(which zsh)
 if grep -q "export PATH" ~/.zshrc
 then
-    clog "found \"export PATH\" in ~/.zshrc, skipping update"
-    clog "existing PATH:"
+    clog "Found \"export PATH\" in ~/.zshrc, skipping update"
+    clog "Existing PATH:"
     echo $PATH
 else
-    clog "updating PATH..."
+    clog "Updating PATH..."
     echo "export PATH=\"/usr/local/bin:/usr/local/sbin:~/bin:/opt/homebrew/bin:\$PATH\"" >> ~/.zshrc
     source ~/.zshrc
-    clog "updated PATH:"
+    clog "Updated PATH:"
     echo $PATH
 fi
 
 echo ""
 
-clog "creating ~/Applications for personal applications..."
+clog "Creating ~/Applications for personal applications..."
 mkdir -p ~/Applications
 
 if grep -q "HOMEBREW_CASK_OPTS" ~/.zshrc
 then
-    clog "found HOMEBREW_CASK_OPTS in ~/.zshrc, skipping update"
+    clog "Found HOMEBREW_CASK_OPTS in ~/.zshrc, skipping update"
 else
-    clog "updating homebrew cask install directory to ~/Applications..."
+    clog "Updating homebrew cask install directory to ~/Applications..."
     echo "export HOMEBREW_CASK_OPTS=\"--appdir=~/Applications\"" >> ~/.zshrc
     source ~/.zshrc
 fi
 
 echo ""
 
-clog "updating global npm config..."
+clog "Updating global npm config..."
 ./npm/global-config
-echo Done!
-clog "installing global npm packages..."
+plog Done!
+clog "Installing global npm packages..."
 ./npm/global-packages
-echo Done!
+plog Done!
 
 echo ""
 
-clog "installing latest node..."
+clog "Installing latest node..."
 source ~/.nvm/nvm.sh
 nvm install --lts
-echo Done!
+plog Done!
 
-clog "installing brew packages and casks..."
+clog "Installing brew packages and casks..."
 brew doctor
 brew update
 brew bundle --file brew/Brewfile
 
-clog "running install script..."
+clog "Symlinking Sublime to subl..."
+sudo ln -sf /Users/bradley/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+plog Done!
+
+
+ln -sf ~/code/bradleyoesch/dotfiles ~/.dotfiles
+clog "Running install script..."
 ./install
+plog Done!
