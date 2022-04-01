@@ -19,7 +19,7 @@ then
 else
     clog "Updating PATH..."
     echo "export PATH=\"/usr/local/bin:/usr/local/sbin:~/bin:/opt/homebrew/bin:\$PATH\"" >> ~/.zshrc
-    source ~/.zshrc
+    exec zsh
     clog "Updated PATH:"
     echo $PATH
 fi
@@ -35,7 +35,7 @@ then
 else
     clog "Updating homebrew cask install directory to ~/Applications..."
     echo "export HOMEBREW_CASK_OPTS=\"--appdir=~/Applications\"" >> ~/.zshrc
-    source ~/.zshrc
+    exec zsh
 fi
 
 echo ""
