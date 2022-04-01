@@ -1,11 +1,9 @@
-# export PATH first
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:/opt/homebrew/bin:$PATH"
+
+export HOMEBREW_CASK_OPTS=\"--appdir=~/Applications\"
 
 # source the zshrc file created when installing oh-my-zshrc
 source ~/.oh-my-zshrc
-
-# set homebrew cask install dir
-export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 
 # next, aliases and functions
 source ~/.aliases
@@ -26,8 +24,8 @@ export NVM_DIR="$HOME/.nvm"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # zsh integration, order matters
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[OA' history-substring-search-up
 bindkey '^[OB' history-substring-search-down
