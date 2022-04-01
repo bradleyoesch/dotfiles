@@ -11,7 +11,7 @@ alias paths='echo -e ${PATH//:/\\n}'
 # -1 : one perline
 # -F : trailing slash for directory names
 # -G : enable colorized
-alias ls="ls -1FG --color=auto"
+alias ls="ls -1FG" # --color=auto
 
 # -a : show hidden files/directories
 # -l : show size
