@@ -68,12 +68,20 @@ open ~/Applications
 
 Setup
 
+### FileZilla
+
+Download and setup: https://filezilla-project.org/download.php?platform=osx
+
+Import bradleyoesch.com site settings from [`applications/filezilla/site-config-bradleyoesch.com.xml`](applications/filezilla/site-config-bradleyoesch.com.xml)
+- `File > Import > applications/filezilla/`
+
 ### Folx
 
 Setup
 
 ### Flux
 
+Update hues with `Top bar icon > Preferences`:
 - Daytime - 4800K
 - Sunset - 3400K
 - Bedtime - 2000K
@@ -105,11 +113,12 @@ Load iTerm2 settings:
 - [`applications/iterm2/monokai-bradley.itermcolors`](applications/iterm2/monokai-bradley.itermcolors)
 - [`applications/iterm2/profile.json`](applications/iterm2/profile.json)
 
-Preferences > Keys > Hotkey > cmd + \`
+Set global hotkey
+- `Preferences > Keys > Hotkey > cmd + opt + \``
 
 ### QuickLook
 
-Open the Quicklook directory and Right click > Show Package Contents > ... > MacOS > Right click > Open > Allow
+Open the Quicklook directory and `Right click > Show Package Contents > ... > MacOS > Right click > Open > Allow`
 
 ```bash
 open /Users/bradley/Library/QuickLook
@@ -119,10 +128,7 @@ open ~/Applications # QLMarkdown
 ### Rectangle
 
 Import settings from [`applications/rectangle/rectangle.json`](applications/rectangle/rectangle.json)
-
-### Slapdash
-
-Log in
+- `cmd + space > Rectangle > Gear icon > Import (at bottom)`
 
 ### Spotify
 
