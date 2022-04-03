@@ -40,6 +40,13 @@ fi
 
 echo ""
 
+clog "Installing latest node..."
+source ~/.nvm/nvm.sh
+nvm install --lts
+plog Done!
+
+echo ""
+
 clog "Updating global npm config..."
 ./npm/global-config
 plog Done!
@@ -47,12 +54,8 @@ clog "Installing global npm packages..."
 ./npm/global-packages
 plog Done!
 
-echo ""
-
-clog "Installing latest node..."
-source ~/.nvm/nvm.sh
-nvm install --lts
-plog Done!
+clog "Installing prerequisites for brew casks"
+sudo softwareupdate --install-rosetta
 
 clog "Installing brew packages and casks..."
 brew doctor
@@ -65,8 +68,4 @@ plog Done!
 
 clog "Updating VLC settings..."
 ./applications/vlc/sync import
-plog Done!
-
-clog "Running install script..."
-./install
 plog Done!
