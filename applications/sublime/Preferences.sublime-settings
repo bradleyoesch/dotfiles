@@ -3,7 +3,7 @@
     "auto_complete_with_fields": true,
     "bold_folder_labels": true,
     // https://monokai.pro/sublime-text
-    "color_scheme": "Monokai Pro.sublime-color-scheme",
+    // "color_scheme": "Monokai Pro.sublime-color-scheme",
     "ensure_newline_at_eof_on_save": true,
     "font_size": 13.0,
     "highlight_modified_tabs": true,
@@ -26,4 +26,5 @@
     "theme": "Monokai Pro.sublime-theme",
     "translate_tabs_to_spaces": true,
     "trim_trailing_white_space_on_save": true,
+    "color_scheme": "Monokai Pro.sublime-color-scheme",
 }

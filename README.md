@@ -123,24 +123,28 @@ Setup google account
 - OneTab - import tabs
 - RedditEnhancementSuite - import settings from Google Drive
 - SetupVPN - log in
-- Slapdash - log in
 - Stylebot - import settings from [`applications/chrome/stylebot.json`](applications/chrome/stylebot.json)
 - uBlock - import settings from [`applications/chrome/ublock.txt`](applications/chrome/ublock.txt)
 
 #### Apps
 
-- Postman - log in
+- Postman - log in with Google
 
 ### iTerm2
 
 Load iTerm2 settings:
 
-- [`applications/iterm2/keybindings.itermkeymap`](applications/iterm2/keybindings.itermkeymap)
-- [`applications/iterm2/monokai-bradley.itermcolors`](applications/iterm2/monokai-bradley.itermcolors)
+`Profiles > Other Actions... > Import JSON Profiles...`
 - [`applications/iterm2/profile.json`](applications/iterm2/profile.json)
 
-Set global hotkey
-- `Preferences > Keys > Hotkey > cmd + opt + \``
+`Profiles > Colors > Color Presets... > Import...`
+- [`applications/iterm2/monokai-bradley.itermcolors`](applications/iterm2/monokai-bradley.itermcolors)
+
+`Keys > Key Bindings > Presets... > Import`
+- [`applications/iterm2/keybindings.itermkeymap`](applications/iterm2/keybindings.itermkeymap)
+
+Set global hotkey:
+`Preferences > Keys > Hotkey > cmd + opt + `
 
 ### QuickLook
 
@@ -158,7 +162,7 @@ Import settings from [`applications/rectangle/rectangle.json`](applications/rect
 
 ### Spotify
 
-Log in, double check settings
+Log in with Facebook, double check settings
 
 ### Sublime Text
 
@@ -169,6 +173,12 @@ You can open from the terminal with `subl`:
 ```bash
 subl ~/.zshrc
 ```
+
+The theme may be broken, so comment it out and reinstall:
+
+- `cmd + ,` for preferences
+- visit https://monokai.pro/sublime-text to install (may be under `Monokai+`)
+- `cmd + shift + P > Monokai Pro: select theme` to apply
 
 ### VLC
 
