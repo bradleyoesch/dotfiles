@@ -46,3 +46,6 @@ alias gss="git stash && git stash pop"
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
+
+alias c='clear'
+alias cc='clear'
