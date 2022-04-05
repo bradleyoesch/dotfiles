@@ -134,6 +134,10 @@ Setup google account
 
 Load iTerm2 settings:
 
+`General > Preferences > Load preferences from a custom folder or URL`
+- [`applications/iterm2/`](applications/iterm2/)
+
+
 `Profiles > Other Actions... > Import JSON Profiles...`
 - [`applications/iterm2/profile.json`](applications/iterm2/profile.json)
 
