@@ -21,8 +21,6 @@ alias la="ls -alh"
 # show with numbers
 alias ll="ls | cat -b"
 
-alias cdot="cd ~/code/bradleyoesch/dotfiles"
-alias cddot="cd ~/code/bradleyoesch/dotfiles"
 alias cd..="cd .."
 alias ..="cd .."
 alias ...="cd ../.."
@@ -43,9 +41,18 @@ alias gss="git stash && git stash pop"
 ##########
 
 # Aliases to protect against overwriting
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -i"
 
-alias c='clear'
-alias cc='clear'
+alias c="clear"
+alias cc="clear"
+
+############
+# packages #
+############
+
+# -a : show hidden files
+# -C : auto color
+# -I : ignore the given files/directories
+alias tree="tree -aCI 'node_modules|.git|.gitmodules'"
