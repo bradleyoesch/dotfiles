@@ -98,8 +98,14 @@ Setup
 
 Download and setup: https://filezilla-project.org/download.php?platform=osx
 
-Import bradleyoesch.com site settings from [`applications/filezilla/site-config-bradleyoesch.com.xml`](applications/filezilla/site-config-bradleyoesch.com.xml)
-- `File > Import > applications/filezilla/`
+Add ssh key:
+1. `ssh-keygen`
+1.  [Copy the key manually](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04#copying-the-public-key-manually) into your droplet
+1. Import bradleyoesch.com site settings from [`applications/filezilla/site-config-bradleyoesch.com.xml`](applications/filezilla/site-config-bradleyoesch.com.xml)
+   - `File > Import > applications/filezilla/`
+   - You will probably have to add the ssh key manually, since filezilla expects it with a certain format
+
+Export settings with `File > Export > Export Site Manager entries`
 
 ### Folx
 
