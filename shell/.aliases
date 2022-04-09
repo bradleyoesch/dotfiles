@@ -56,3 +56,9 @@ alias cc="clear"
 # -C : auto color
 # -I : ignore the given files/directories
 alias tree="tree -aCI 'node_modules|.git|.gitmodules'"
+
+########
+# else #
+########
+
+alias unbak="rebak"

@@ -1,5 +1,36 @@
-# Create a new directory and enter it
-
+# create a new directory and enter it
 mk() {
   mkdir -p "$@" && cd "$@"
+}
+
+# add ".bak" extension
+# -mv to rename (default)
+# -cp to copy
+bak() {
+  if [ "$1" = "-cp" ]; then
+    cp $2 $2.bak
+    echo "Copied to $2.bak"
+  elif [ "$1" = "-mv" ]; then
+    mv $2 $2.bak
+    echo "Renamed to $2.bak"
+  else
+    mv $1 $1.bak
+    echo "Renamed to $1.bak"
+  fi
+}
+
+# remove ".bak" extension
+# -mv to rename (default)
+# -cp to copy
+rebak() {
+  if [ "$1" = "-cp" ]; then
+    cp $2 "${2//.bak}"
+    echo "Copied to ${2//.bak}"
+  elif [ "$1" = "-mv" ]; then
+    mv $2 "${2//.bak}"
+    echo "Renamed to ${2//.bak}"
+  else
+    mv $1 "${1//.bak}"
+    echo "Renamed to ${1//.bak}"
+  fi
 }
