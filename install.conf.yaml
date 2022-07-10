@@ -12,6 +12,7 @@
     ~/.gitconfig: git/.gitconfig
     ~/.grep: shell/.grep
     ~/.oh-my-zshrc: shell/.oh-my-zshrc
+    ~/.zprofile: shell/.zprofile
     ~/.zshrc: shell/.zshrc
     ~/node-init: npm/node-init
 
