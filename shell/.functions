@@ -3,9 +3,9 @@ mk() {
   mkdir -p "$@" && cd "$@"
 }
 
-# add ".bak" extension
-# -mv to rename (default)
-# -cp to copy
+# copy with ".bak" extension
+# -cp to copy (default)
+# -mv to rename
 bak() {
   if [ "$1" = "-cp" ]; then
     cp $2 $2.bak
@@ -14,14 +14,14 @@ bak() {
     mv $2 $2.bak
     echo "Renamed to $2.bak"
   else
-    mv $1 $1.bak
-    echo "Renamed to $1.bak"
+    cp $1 $1.bak
+    echo "Copied to $1.bak"
   fi
 }
 
-# remove ".bak" extension
-# -mv to rename (default)
-# -cp to copy
+# copy with ".bak" extension
+# -cp to copy (default)
+# -mv to rename
 rebak() {
   if [ "$1" = "-cp" ]; then
     cp $2 "${2//.bak}"
@@ -30,7 +30,7 @@ rebak() {
     mv $2 "${2//.bak}"
     echo "Renamed to ${2//.bak}"
   else
-    mv $1 "${1//.bak}"
-    echo "Renamed to ${1//.bak}"
+    cp $1 "${1//.bak}"
+    echo "Copied to ${1//.bak}"
   fi
 }
