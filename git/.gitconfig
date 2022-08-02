@@ -41,6 +41,7 @@
 [alias]
 	amend = commit --amend --reuse-message=HEAD
 	br = branch
+	brr = branch --format='%(HEAD) %(if)%(HEAD)%(then)%(color:green)%(end)%(refname:short)%(if)%(HEAD)%(then)%(else)%(color:dim)%(end)%(color:white) - %(contents:subject) %(color:cyan)[%(authorname)] %(color:yellow)(%(committerdate:relative))'
 	ci = commit
 	co = checkout
 	contrib = shortlog --summary --numbered
@@ -65,6 +66,11 @@
 	sts = status -sb
 	undo = reset HEAD~
 	unstage = reset --hard HEAD
+	rbc = rebase --continue
+	cb = !git branch --merged | egrep -v '(^\\*|main|master|dev)' | xargs git branch -d
+	tmp = !git add -A && git commit -n -m 'chore: tmp'
+	done = !git push origin HEAD
+	m = machete
 
 [color]
 	ui = auto
