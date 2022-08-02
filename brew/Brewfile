@@ -3,7 +3,6 @@ tap "homebrew/cask"
 
 # 'brew install'
 brew "autojump"
-brew "fig"
 brew "git"
 brew "git-delta"
 brew "lnav"
