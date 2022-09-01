@@ -92,11 +92,11 @@ open ~/Applications
 
 ### Dropbox
 
-Setup
+Set up
 
 ### FileZilla
 
-Download and setup: https://filezilla-project.org/download.php?platform=osx
+Download and set up: https://filezilla-project.org/download.php?platform=osx
 
 Add ssh key:
 1. `ssh-keygen`
@@ -107,10 +107,6 @@ Add ssh key:
 
 Export settings with `File > Export > Export Site Manager entries`
 
-### Folx
-
-Setup
-
 ### Flux
 
 Update hues with `Top bar icon > Preferences`:
@@ -120,7 +116,7 @@ Update hues with `Top bar icon > Preferences`:
 
 ### Google Chrome
 
-Setup google account
+Set up google account
 
 #### Extensions
 
@@ -189,6 +185,10 @@ The theme may be broken, so comment it out and reinstall:
 - `cmd + ,` for preferences
 - visit https://monokai.pro/sublime-text to install (may be under `Monokai+`)
 - `cmd + shift + P > Monokai Pro: select theme` to apply
+
+### Transmission
+
+Download and set up: https://transmissionbt.com/download.html
 
 ### VLC
 

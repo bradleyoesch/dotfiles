@@ -19,7 +19,6 @@ brew "zsh-syntax-highlighting"
 #'brew install --cask'
 cask "dropbox"
 cask "flux"
-cask "folx"
 cask "google-chrome"
 cask "iterm2"
 cask "postman"
