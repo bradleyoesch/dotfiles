@@ -163,7 +163,7 @@ open ~/Applications # QLMarkdown
 
 ### Rectangle
 
-Import settings from [`applications/rectangle/rectangle.json`](applications/rectangle/rectangle.json)
+Import settings from [`applications/rectangle/config.json`](applications/rectangle/config.json)
 - `cmd + space > Rectangle > Gear icon > Import (at bottom)`
 
 ### Spotify
