@@ -11,6 +11,9 @@
 [core]
 	pager = delta
 
+[sequence]
+	editor = rebase-editor
+
 [push]
 	default = simple
 	followTags = true
