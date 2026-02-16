@@ -1,28 +1,4 @@
 {
-  "www.juststream.live": {
-    "css": "#video_container {\n  width:100%;\n  margin: 0;\n}",
-    "enabled": true,
-    "modifiedTime": "2021-09-11T20:05:02.437-05:00",
-    "readability": false
-  },
-  "www.streamja.com": {
-    "css": "#header {\n  display: none;\n}\n\n.playerContainer {\n  margin: 0;\n  width: auto;\n  max-height: 100vh;\n}",
-    "enabled": true,
-    "modifiedTime": "2021-09-11T20:09:24.978-05:00",
-    "readability": false
-  },
-  "www.streamvi.com": {
-    "css": "nav.navbar.navbar-expand-md.navbar-light.fixed-top.bg-white {\n  display: none;\n}\n\n",
-    "enabled": true,
-    "modifiedTime": "2021-05-09T20:26:08.162-05:00",
-    "readability": false
-  },
-  "www.streamwo.com": {
-    "css": ".container.text-center.mt-1 {\n  max-width: 100%;\n}",
-    "enabled": true,
-    "modifiedTime": "2021-09-11T20:11:02.153-05:00",
-    "readability": false
-  },
   "www.avclub.com": {
     "css": "div._3fuZ4Zij-D {\n  display: none;\n}\n\n",
     "enabled": true,
@@ -33,24 +9,6 @@
     "css": ".cne-interlude-container, .review-section, .util-print-hide {\n  display: none;\n}\n\nbody.page-id-57ae48621b33404414975cc4::before {\n  content: 'less blueberrys, more cinnamon, more brown sugar, maybe pockets of topping, swirled instead of  spread evenly, could use less if it makes sense';\n}\n\ndiv.riser-header-wrapper {\n  display: none;\n}\n\ndiv.riser.expanded.ba-recirc-riser.ba-recirc-riser--minified {\n  display: none;\n}\n\ndiv.row.row--cm-nl {\n  display: none;\n}\n\ndiv.secondary-content {\n  display: none;\n}\n\ndiv.toggle-riser {\n  display: none;\n}\n\nfigure.cne-interlude-container-right-rail {\n  display:none;\n}\n.persistent-bottom,\n.journey-unit__container,\n.grid-layout__aside {\n  display: none;\n}\n",
     "enabled": true,
     "modifiedTime": "2021-05-09T20:26:08.163-05:00",
-    "readability": false
-  },
-  "www.google.com": {
-    "css": "/* score */\n.liveresults-sports-immersive__match-tile\n.imspo_mt__t-sc,\n/* big score */\n.imso_mh__scr-sep,\n.imso_mh__score-sum,\n/* winner triangle */\n.liveresults-sports-immersive__match-tile\n.imspo_mt__triangle,\n/* cards */\n.liveresults-sports-immersive__match-tile\nimg[alt=\"Red cards\"] {\n  visibility: hidden;\n}",
-    "enabled": true,
-    "modifiedTime": "2024-01-01T15:49:51.662-06:00",
-    "readability": false
-  },
-  "www.clarkesworldmagazine.com": {
-    "css": ".content-section {\n  max-width: 700px;\n}\n\n.story-text {\n  font-size: 1.15rem;\n  line-height: 1.33; \n}",
-    "enabled": true,
-    "modifiedTime": "2023-11-30T20:42:07.323-06:00",
-    "readability": false
-  },
-  "www.streamable.com": {
-    "css": ".top-ad-banner {\n  display: none;\n}",
-    "enabled": true,
-    "modifiedTime": "2023-12-13T19:19:49.183-06:00",
     "readability": false
   },
   "www.businessinsider.com": {
@@ -65,10 +23,22 @@
     "modifiedTime": "2021-05-09T20:26:08.163-05:00",
     "readability": false
   },
+  "www.clarkesworldmagazine.com": {
+    "css": ".content-section {\n  max-width: 700px;\n}\n\n.story-text {\n  font-size: 1.15rem;\n  line-height: 1.33; \n}",
+    "enabled": true,
+    "modifiedTime": "2023-11-30T20:42:07.323-06:00",
+    "readability": false
+  },
   "www.free-tv-video-online.info": {
     "css": "iframe {\n  display: none;\n}\n\n",
     "enabled": true,
     "modifiedTime": "2021-05-09T20:26:08.163-05:00",
+    "readability": false
+  },
+  "www.google.com": {
+    "css": "/* score */\n.liveresults-sports-immersive__match-tile\n.imspo_mt__t-sc,\n/* big score */\n.imso_mh__scr-sep,\n.imso_mh__score-sum,\n/* winner triangle */\n.liveresults-sports-immersive__match-tile\n.imspo_mt__triangle,\n/* cards */\n.liveresults-sports-immersive__match-tile\nimg[alt=\"Red cards\"] {\n  visibility: hidden;\n}",
+    "enabled": true,
+    "modifiedTime": "2024-01-01T15:49:51.662-06:00",
     "readability": false
   },
   "www.hollywoodreporter.com": {
@@ -89,6 +59,36 @@
     "modifiedTime": "2021-05-09T20:26:08.163-05:00",
     "readability": false
   },
+  "www.juststream.live": {
+    "css": "#video_container {\n  width:100%;\n  margin: 0;\n}",
+    "enabled": true,
+    "modifiedTime": "2021-09-11T20:05:02.437-05:00",
+    "readability": false
+  },
+  "www.streamable.com": {
+    "css": ".top-ad-banner {\n  display: none;\n}",
+    "enabled": true,
+    "modifiedTime": "2023-12-13T19:19:49.183-06:00",
+    "readability": false
+  },
+  "www.streamja.com": {
+    "css": "#header {\n  display: none;\n}\n\n.playerContainer {\n  margin: 0;\n  width: auto;\n  max-height: 100vh;\n}",
+    "enabled": true,
+    "modifiedTime": "2021-09-11T20:09:24.978-05:00",
+    "readability": false
+  },
+  "www.streamvi.com": {
+    "css": "nav.navbar.navbar-expand-md.navbar-light.fixed-top.bg-white {\n  display: none;\n}\n\n",
+    "enabled": true,
+    "modifiedTime": "2021-05-09T20:26:08.162-05:00",
+    "readability": false
+  },
+  "www.streamwo.com": {
+    "css": ".container.text-center.mt-1 {\n  max-width: 100%;\n}",
+    "enabled": true,
+    "modifiedTime": "2021-09-11T20:11:02.153-05:00",
+    "readability": false
+  },
   "www.thesaurus.com": {
     "css": "div.editorial-content-feed {\n  display: none;\n}\n\n",
     "enabled": true,
@@ -103,8 +103,8 @@
   },
   "www.youtube.com": {
     "css": ".ytd-popup-container {\n  display: none;\n}\n\n/* free tv trial ad */\n\ndiv.style-scope.ytd-watch-next-secondary-results-renderer {\n  display: none;\n}\n\ndiv.watch-main-col {\n  width: 100%;\n}\n\n/* comments\nytd-item-section-renderer.style-scope.ytd-comments {\n  display: none;\n}\n*/\n\nytd-watch[theater] #pla-shelf.ytd-watch, ytd-watch[theater] #info.ytd-watch, ytd-watch[theater] #meta.ytd-watch, ytd-watch[theater] #ticket-shelf.ytd-watch, ytd-watch[theater] #comments.ytd-watch, ytd-watch[theater] #report.ytd-watch {\n  padding-right: 0;\n}",
-    "readability": false,
     "enabled": true,
-    "modifiedTime": "2024-01-13T11:47:29.291-06:00"
+    "modifiedTime": "2024-01-13T11:47:29.291-06:00",
+    "readability": false
   }
 }
