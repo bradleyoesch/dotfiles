@@ -14,7 +14,6 @@
     ~/.oh-my-zshrc: shell/.oh-my-zshrc
     ~/.zprofile: shell/.zprofile
     ~/.zshrc: shell/.zshrc
-    ~/node-init: npm/node-init
 
 - create:
     - ~/.vim/undo-history

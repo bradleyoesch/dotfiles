@@ -1,7 +1,7 @@
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-declare -a packages=("json" "rebase-editor" "tldr")
+declare -a packages=("rebase-editor")
 
 for val in ${packages[@]}; do
   echo "${BLUE}>>>>> Installing ${val} <<<<<${NC}"

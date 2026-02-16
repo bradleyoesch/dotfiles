@@ -47,9 +47,6 @@ plog Done!
 
 echo ""
 
-clog "Updating global npm config..."
-./npm/global-config
-plog Done!
 clog "Installing global npm packages..."
 ./npm/global-packages
 plog Done!
