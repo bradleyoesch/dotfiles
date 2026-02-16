@@ -1,0 +1,18 @@
+{
+  "version": "2026.208.2004",
+  "showBlockedCount": false,
+  "filteringModes": {
+    "none": [
+      "www.carolinescooking.com",
+      "drsnyder.com",
+      "drive.usercontent.google.com",
+      "writers.coverfly.com",
+      "www.eticketing.co.uk"
+    ],
+    "basic": [],
+    "optimal": [
+      "all-urls"
+    ],
+    "complete": []
+  }
+}

@@ -124,7 +124,7 @@ Set up google account
 - Stylebot - import settings from [`applications/chrome/stylebot.json`](applications/chrome/stylebot.json)
   - To export: Extension Icon > Sync > Export
   - `jq -S '.' ~/Downloads/stylebot_backup.json > applications/chrome/stylebot.json`
-- uBlock - import settings from [`applications/chrome/ublock.txt`](applications/chrome/ublock.txt)
+- uBlock Origin Lite - import settings from [`applications/chrome/ublock.json`](applications/chrome/ublock.json)
 
 #### Apps
 
