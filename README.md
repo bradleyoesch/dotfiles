@@ -122,6 +122,8 @@ Set up google account
 - RedditEnhancementSuite - import settings from Google Drive
 - SetupVPN - log in
 - Stylebot - import settings from [`applications/chrome/stylebot.json`](applications/chrome/stylebot.json)
+  - To export: Extension Icon > Sync > Export
+  - `jq -S '.' ~/Downloads/stylebot_backup.json > applications/chrome/stylebot.json`
 - uBlock - import settings from [`applications/chrome/ublock.txt`](applications/chrome/ublock.txt)
 
 #### Apps

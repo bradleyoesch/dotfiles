@@ -1,4 +1,22 @@
 {
+  "google.com": {
+    "css": "",
+    "enabled": true,
+    "modifiedTime": "2024-01-13T11:46:59.839-06:00",
+    "readability": true
+  },
+  "old.reddit.com": {
+    "css": ".listingsignupbar {\n  display: none;\n}",
+    "enabled": true,
+    "modifiedTime": "2024-01-17T18:49:28.482-06:00",
+    "readability": false
+  },
+  "typehere.cc": {
+    "css": "#typingCanvas {\n  font-family: Monaco, \"Lucida Console\", \"Courier New\", monospace\n}",
+    "enabled": true,
+    "modifiedTime": "2024-03-31T22:55:49.357-07:00",
+    "readability": false
+  },
   "www.avclub.com": {
     "css": "div._3fuZ4Zij-D {\n  display: none;\n}\n\n",
     "enabled": true,
@@ -17,12 +35,6 @@
     "modifiedTime": "2021-05-09T20:26:08.163-05:00",
     "readability": false
   },
-  "www.buzzfeed.com": {
-    "css": "div.content {\n  display: none;\n}\n\n",
-    "enabled": true,
-    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
-    "readability": false
-  },
   "www.clarkesworldmagazine.com": {
     "css": ".content-section {\n  max-width: 700px;\n}\n\n.story-text {\n  font-size: 1.15rem;\n  line-height: 1.33; \n}",
     "enabled": true,
@@ -36,9 +48,9 @@
     "readability": false
   },
   "www.google.com": {
-    "css": "/* score */\n.liveresults-sports-immersive__match-tile\n.imspo_mt__t-sc,\n/* big score */\n.imso_mh__scr-sep,\n.imso_mh__score-sum,\n/* winner triangle */\n.liveresults-sports-immersive__match-tile\n.imspo_mt__triangle,\n/* cards */\n.liveresults-sports-immersive__match-tile\nimg[alt=\"Red cards\"] {\n  visibility: hidden;\n}",
+    "css": "/* summary page */\n/* score */\n[data-attrid=\"TLOsrpMatchListSummary\"] td .imspo_mt__t-sc,\n/* winner triangle */\n[data-attrid=\"TLOsrpMatchListSummary\"] td .imspo_mt__triangle,\n/* cards */\n[data-attrid=\"TLOsrpMatchListSummary\"] td img.imspo_mt__tri {\n  display: none;\n}\n\n/* score */\n.liveresults-sports-immersive__match-tile\n.imspo_mt__t-sc,\n/* big score */\n.imso_mh__scr-sep,\n.imso_mh__score-sum,\n/* winner triangle */\n.liveresults-sports-immersive__match-tile\n.imspo_mt__triangle,\n/* cards */\n.liveresults-sports-immersive__match-tile\nimg[alt=\"Red cards\"],\n/* aggregate score */\n.imspo_mt__lg-st-co,\n.imso_mh__s-t-c\n{\n  visibility: hidden;\n}\n/* live standings */\n\n[data-attrid=\"TLOsrpMatchStandings\"] .Af9bid.b7GjXe.OPoCDe {\n  visibility: hidden;\n}\n\n/* hacky way to truncate penalty marker */\n.imspo_mt__match-status [aria-label=\"FT (P)\"] {\n  display: inline-block;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: hidden;\n  max-width: 15px;\n}",
     "enabled": true,
-    "modifiedTime": "2024-01-01T15:49:51.662-06:00",
+    "modifiedTime": "2025-03-16T18:55:55.932-07:00",
     "readability": false
   },
   "www.hollywoodreporter.com": {
@@ -65,6 +77,18 @@
     "modifiedTime": "2021-09-11T20:05:02.437-05:00",
     "readability": false
   },
+  "www.reddit.com": {
+    "css": "/* left panel */\n#left-sidebar-container,\n/* right panel(s) */\n[data-slug=\"pdp_right_rail_related\"],\n[role=\"menu\"],\n[role=\"menu\"] + div\n/* floating white box right */\n.res-floater-belowNavbar {\n  display: none;\n}\n/* left join reddit */\n.BtYn3oMRXzNwmNMkolecQ {\n  display: none;\n}",
+    "enabled": true,
+    "modifiedTime": "2024-08-18T17:33:55.797-05:00",
+    "readability": false
+  },
+  "www.seriouseats.com": {
+    "css": "#article__broad-video-jw_1-0,\n.mm-ads-leaderboard-header {\n  display: none;\n}",
+    "enabled": true,
+    "modifiedTime": "2025-08-31T06:47:25.672-05:00",
+    "readability": false
+  },
   "www.streamable.com": {
     "css": ".top-ad-banner {\n  display: none;\n}",
     "enabled": true,
@@ -89,12 +113,6 @@
     "modifiedTime": "2021-09-11T20:11:02.153-05:00",
     "readability": false
   },
-  "www.thesaurus.com": {
-    "css": "div.editorial-content-feed {\n  display: none;\n}\n\n",
-    "enabled": true,
-    "modifiedTime": "2021-05-09T20:26:08.163-05:00",
-    "readability": false
-  },
   "www.vulture.com": {
     "css": "#tertiary {\n  display: none;\n}\n\naside.latest-news {\n  display: none;\n}\n\naside.related {\n  display: none;\n}\n\naside.related-stories {\n  display: none;\n}\n\naside.single-related-story {\n  display: none;\n}\n\ndiv.comments-link {\n  display: none;\n}\n\ndiv.coral-talk {\n  display: none;\n}\n\ndiv.modal.right-aligned {\n  display: none;\n}\n\ndiv.next a {\n  display: none;\n}\n\ndiv.prev a {\n  display: none;\n}\n\ndiv.tags {\n  display: none;\n}\n\nsection.tertiary {\n  display: none;\n}\n\n",
     "enabled": true,
@@ -102,9 +120,15 @@
     "readability": false
   },
   "www.youtube.com": {
-    "css": ".ytd-popup-container {\n  display: none;\n}\n\n/* free tv trial ad */\n\ndiv.style-scope.ytd-watch-next-secondary-results-renderer {\n  display: none;\n}\n\ndiv.watch-main-col {\n  width: 100%;\n}\n\n/* comments\nytd-item-section-renderer.style-scope.ytd-comments {\n  display: none;\n}\n*/\n\nytd-watch[theater] #pla-shelf.ytd-watch, ytd-watch[theater] #info.ytd-watch, ytd-watch[theater] #meta.ytd-watch, ytd-watch[theater] #ticket-shelf.ytd-watch, ytd-watch[theater] #comments.ytd-watch, ytd-watch[theater] #report.ytd-watch {\n  padding-right: 0;\n}",
+    "css": "/* comments\nytd-item-section-renderer.style-scope.ytd-comments {\n  display: none;\n}\n*/\n#comments {\n  display: none;\n}\n#secondary.ytd-watch-grid {\n  width: 100%;\n}\n#primary {\n  min-width: initial;\n}\n/* related videos */\n#secondary,\n#related {\n  display: none;\n}\n/* #primary-inner #below {\n  display: none;\n} */\n\nytd-watch[theater] #pla-shelf.ytd-watch, ytd-watch[theater] #info.ytd-watch, ytd-watch[theater] #meta.ytd-watch, ytd-watch[theater] #ticket-shelf.ytd-watch, ytd-watch[theater] #comments.ytd-watch, ytd-watch[theater] #report.ytd-watch {\n  padding-right: 0;\n}",
     "enabled": true,
-    "modifiedTime": "2024-01-13T11:47:29.291-06:00",
+    "modifiedTime": "2025-08-31T12:51:23.308-05:00",
+    "readability": false
+  },
+  "youtube.com": {
+    "css": "",
+    "enabled": true,
+    "modifiedTime": "2024-01-13T11:46:59.839-06:00",
     "readability": false
   }
 }
