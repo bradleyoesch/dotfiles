@@ -48,7 +48,10 @@ plog Done!
 echo ""
 
 clog "Installing global npm packages..."
-./npm/global-packages
+while IFS= read -r package; do
+  [[ -z "$package" || "$package" =~ ^# ]] && continue
+  npm install -g "$package"
+done < npm/global-packages
 plog Done!
 
 clog "Installing prerequisites for brew casks"
