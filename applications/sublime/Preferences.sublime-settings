@@ -4,9 +4,12 @@
     "bold_folder_labels": true,
     // https://monokai.pro/sublime-text
     // "color_scheme": "Monokai Pro.sublime-color-scheme",
-    "ensure_newline_at_eof_on_save": true,
-    "font_size": 13.0,
+    "color_scheme": "Mariana.sublime-color-scheme",
+    // this can bite you for csvs, annoying for git, etc
+    "ensure_newline_at_eof_on_save": false,
+    "font_size": 13,
     "highlight_modified_tabs": true,
+    "index_files": true,
     "ignored_packages":
     [
         "Vintage",
@@ -23,8 +26,8 @@
     "tab_completion": false,
     "tab_size": 4,
     "tabs_small": true,
-    "theme": "Monokai Pro.sublime-theme",
+    // "theme": "Monokai Pro.sublime-theme",
+    "theme": "Adaptive.sublime-theme",
     "translate_tabs_to_spaces": true,
-    "trim_trailing_white_space_on_save": true,
-    "color_scheme": "Monokai Pro.sublime-color-scheme",
+    "trim_trailing_white_space_on_save": true
 }
