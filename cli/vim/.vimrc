@@ -1,11 +1,9 @@
 " Basic settings
 set nocompatible                " Use Vim defaults (not vi)
-" syntax on                       " Enable syntax highlighting
 filetype plugin indent on       " Enable filetype detection
 
 " Visual
-set number                      " Show line numbers
-" set relativenumber              " Show relative line numbers
+" set number                      " Show line numbers
 set showmatch                   " Highlight matching brackets
 set cursorline                  " Highlight current line
 set ruler                       " Show cursor position
@@ -43,5 +41,3 @@ set ttyfast                     " Faster terminal connection
 set backspace=indent,eol,start  " Backspace works on everything
 set clipboard=unnamed           " Use system clipboard
 set mouse=a                     " Enable mouse support
-" set wildmenu                    " Visual autocomplete for command menu
-" set wildmode=longest:full,full  " Command line completion mode

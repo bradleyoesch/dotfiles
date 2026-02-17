@@ -105,3 +105,25 @@ fi
 clog "Updating VLC settings..."
 ./gui/vlc/sync.sh import
 plog Done!
+
+echo ""
+
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+    clog "Installing tmux plugin manager..."
+    mkdir -p ~/.tmux/plugins
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    plog "Done!"
+else
+    clog "tmux plugin manager already installed, skipping"
+fi
+
+echo ""
+
+if [ ! -d ~/.vim/pack/tpope/start/sensible ]; then
+    clog "Installing vim-sensible..."
+    mkdir -p ~/.vim/pack/tpope/start
+    git clone https://tpope.io/vim/sensible.git ~/.vim/pack/tpope/start/sensible
+    plog "Done!"
+else
+    clog "vim-sensible already installed, skipping"
+fi
