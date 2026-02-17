@@ -17,10 +17,7 @@ alias ls="ls -FG"
 # -a : show hidden files/directories
 # -l : show size
 # -h : human readable size
-alias la="ls -alh"
-
-# show with numbers
-alias ll="ls | cat -b"
+alias ll="ls -alh"
 
 alias cd..="cd .."
 alias ..="cd .."
