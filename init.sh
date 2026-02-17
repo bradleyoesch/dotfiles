@@ -1,4 +1,4 @@
-#!/opt/homesystem/brew/bin/zsh
+#!/opt/homebrew/bin/zsh
 
 # Color codes for terminal output
 export LGRN='\033[1;32m'
@@ -41,29 +41,66 @@ fi
 
 echo ""
 
-clog "Installing latest node..."
 source ~/.nvm/nvm.sh
-nvm install --lts
-plog Done!
+current_node=$(nvm current)
+lts_version=$(nvm version-remote --lts)
+if [ "$current_node" = "$lts_version" ]; then
+    clog "Node LTS ($lts_version) already installed and active, skipping"
+else
+    clog "Installing latest node LTS..."
+    nvm install --lts
+    plog "Done!"
+fi
 
 echo ""
 
-clog "Installing global npm packages..."
+missing_packages=()
 while IFS= read -r package; do
   [[ -z "$package" || "$package" =~ ^# ]] && continue
-  npm install -g "$package"
+  if ! npm list -g "$package" &>/dev/null; then
+    missing_packages+=("$package")
+  fi
 done < system/npm/global-packages
-plog Done!
 
-clog "Updating brew..."
-brew doctor
-brew update
+if [ ${#missing_packages[@]} -eq 0 ]; then
+    clog "All npm packages already installed, skipping"
+else
+    clog "Installing missing global npm packages..."
+    for package in "${missing_packages[@]}"; do
+      npm install -g "$package"
+    done
+    plog "Done!"
+fi
+
+brew_repo="/opt/homebrew/.git"
+if [ -d "$brew_repo" ]; then
+    last_update=$(stat -f %m "$brew_repo/FETCH_HEAD" 2>/dev/null || echo 0)
+    current_time=$(date +%s)
+    time_diff=$((current_time - last_update))
+
+    if [ $time_diff -lt 86400 ]; then
+        clog "Brew updated within the last 24 hours, skipping update"
+    else
+        clog "Updating brew..."
+        brew doctor
+        brew update
+    fi
+else
+    clog "Updating brew..."
+    brew doctor
+    brew update
+fi
+
 clog "Installing brew packages and casks..."
 brew bundle --file system/brew/Brewfile
 
-clog "Symlinking Sublime to subl..."
-sudo ln -sf ~/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
-plog Done!
+if [ ! -L /usr/local/bin/subl ]; then
+    clog "Symlinking Sublime to subl..."
+    sudo ln -sf ~/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+    plog "Done!"
+else
+    clog "subl symlink already exists, skipping"
+fi
 
 clog "Updating VLC settings..."
 ./gui/vlc/sync.sh import
