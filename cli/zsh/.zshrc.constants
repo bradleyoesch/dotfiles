@@ -1,0 +1,5 @@
+# Path to dotfiles directory
+export DOTFILES_DIR="$HOME/.config/dotfiles"
+
+# https://github.com/VirtusLab/git-machete
+export GIT_MACHETE_EDITOR=vim

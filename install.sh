@@ -12,4 +12,10 @@ cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+# Ensure ~/.config/dotfiles directory exists for symlinks
+mkdir -p ~/.config/dotfiles
+
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" \
+  -p dotbot-if/if.py \
+  -p dotbot-ed/ed.py \
+  -c "${CONFIG}" "${@}"

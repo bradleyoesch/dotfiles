@@ -63,18 +63,18 @@ Open a new tab and you should see zsh and omz load on startup.
 Clone this project:
 
 ```bash
-mkdir -p ~/code/bradleyoesch
-cd ~/code/bradleyoesch
+mkdir -p ~/bradleyoesch
+cd ~/bradleyoesch
 git clone https://github.com/bradleyoesch/dotfiles.git
 cd dotfiles
 ```
 
-Run setup script then restart zsh to pick up the changes:
+Run init script then restart zsh to pick up the changes:
 
 ```bash
-./setup
+./init.sh
 mv ~/.zshrc ~/.zshrc.bak
-./install
+./install.sh
 exec zsh
 ```
 
@@ -90,10 +90,6 @@ rm ~/.zshrc.bak
 open ~/Applications
 ```
 
-### Dropbox
-
-Set up
-
 ### FileZilla
 
 Download and set up: https://filezilla-project.org/download.php?platform=osx
@@ -103,22 +99,16 @@ Add ssh key:
 1. [Copy the key manually](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04#copying-the-public-key-manually) into your droplet
 1. Add ssh key manually, since filezilla expects a specific format
 
-### Flux
-
-Update hues with `Top bar icon > Preferences`:
-- Daytime - 4800K
-- Sunset - 3400K
-- Bedtime - 2000K
-
 ### Google Chrome
 
 Set up google account
 
 #### Extensions
 
-- Hover Zoom+ - go through settings
+- Hover Zoom+ - import settings from [`applications/chrome/hoverzoon.json`](applications/chrome/hoverzoon.json)
+  - To export: Extension Icon > Options > Advanced > Export
+  - `echo '<JSON>' | jq -S '.' > gui/chrome/hoverzoom.json`
 - LastPass - log in
-- OneTab - import tabs
 - RedditEnhancementSuite - import settings from Google Drive
 - SetupVPN - log in
 - Stylebot - import settings from [`applications/chrome/stylebot.json`](applications/chrome/stylebot.json)
@@ -195,13 +185,13 @@ Settings should be copied for you already after installing.
 To import settings into VLC:
 
 ```bash
-./applications/vlc/sync import
+./applications/vlc/sync.sh import
 ```
 
 To import settings from VLC:
 
 ```bash
-./applications/vlc/sync export
+./applications/vlc/sync.sh export
 ```
 
 ## Installation
@@ -209,7 +199,7 @@ To import settings from VLC:
 This project uses [dotbot](https://github.com/anishathalye/dotbot) to manage the installation.
 
 ```bash
-./install && exec zsh
+./install.sh && exec zsh
 ```
 
 ## Contents
@@ -217,7 +207,7 @@ This project uses [dotbot](https://github.com/anishathalye/dotbot) to manage the
 To view all relevant files and directories in this repo, run `tree`:
 
 ```bash
-tree -aI 'dotbot|.git|.gitmodules'
+tree -aI 'dotbot*|.git|.gitmodules'
 ```
 
 ## Credits

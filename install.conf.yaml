@@ -4,16 +4,49 @@
 
 - clean: ['~']
 
+# Symlink all configs to ~/.config/dotfiles/ (flat structure)
 - link:
-    /Users/bradley/Library/Application Support/Sublime Text/Packages/User/Default (OSX).sublime-keymap: applications/sublime/Default (OSX).sublime-keymap
-    /Users/bradley/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings: applications/sublime/Preferences.sublime-settings
-    ~/.aliases: shell/.aliases
-    ~/.functions: shell/.functions
-    ~/.gitconfig: git/.gitconfig
-    ~/.grep: shell/.grep
-    ~/.oh-my-zshrc: shell/.oh-my-zshrc
-    ~/.zprofile: shell/.zprofile
-    ~/.zshrc: shell/.zshrc
+    ~/.config/dotfiles/.gitconfig: cli/git/.gitconfig
+    ~/.config/dotfiles/.zprofile: cli/zsh/.zprofile
+    ~/.config/dotfiles/.zshrc.aliases: cli/zsh/.zshrc.aliases
+    ~/.config/dotfiles/.zshrc.constants: cli/zsh/.zshrc.constants
+    ~/.config/dotfiles/.zshrc.functions: cli/zsh/.zshrc.functions
+    ~/.config/dotfiles/.zshrc.grep: cli/zsh/.zshrc.grep
+    ~/.config/dotfiles/.zshrc.oh-my-zshrc: cli/zsh/.zshrc.oh-my-zshrc
+    ~/.config/dotfiles/.zshrc: cli/zsh/.zshrc
+
+# Direct symlinks for app-specific locations
+- link:
+    ~/.config/karabiner/karabiner.json: gui/karabiner/karabiner.json
+    ~/.tmux.conf: cli/tmux/.tmux.conf
+    ~/.vimrc: cli/vim/.vimrc
+    ~/Library/Application Support/Sublime Text/Packages/User/Default (OSX).sublime-keymap: gui/sublime/Default (OSX).sublime-keymap
+    ~/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings: gui/sublime/Preferences.sublime-settings
+
+# Add source/include lines (idempotent - creates if missing, appends if exists)
+- ensure_lines:
+    - file: ~/.zshrc
+      lines:
+        - pattern: '^\s*source ~/.config/dotfiles/.zshrc'
+          content: |
+
+            # Managed by dotfiles
+            source ~/.config/dotfiles/.zshrc
+    - file: ~/.zprofile
+      lines:
+        - pattern: '^\s*source ~/.config/dotfiles/.zprofile'
+          content: |
+
+            # Managed by dotfiles
+            source ~/.config/dotfiles/.zprofile
+    - file: ~/.gitconfig
+      lines:
+        - pattern: '^\s*path = ~/.config/dotfiles/.gitconfig'
+          content: |
+
+            # Managed by dotfiles
+            [include]
+                path = ~/.config/dotfiles/.gitconfig
 
 - create:
     - ~/.vim/undo-history

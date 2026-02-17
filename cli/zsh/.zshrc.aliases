@@ -1,4 +1,6 @@
-# List declared aliases, functions, paths
+############
+# standard #
+############
 
 alias aliases="alias | sed 's/=.*//'"
 alias functions="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
@@ -8,10 +10,9 @@ alias paths='echo -e ${PATH//:/\\n}'
 #  directory  #
 ###############
 
-# -1 : one perline
 # -F : trailing slash for directory names
 # -G : enable colorized
-alias ls="ls -1FG" # --color=auto
+alias ls="ls -FG"
 
 # -a : show hidden files/directories
 # -l : show size
@@ -31,10 +32,14 @@ alias .....="cd ../../../.."
 #  git  #
 #########
 
-alias gb="git branch"
-alias gpom="git pull origin main"
-alias gs="git status"
-alias gss="git stash && git stash pop"
+# see also: `git_main_branch` in `.functions`
+
+alias ga='git add -A && git status'
+alias gb='git brv'
+alias gcm='git checkout $(git_main_branch) && gb'
+alias gpom='git pull origin $(git_main_branch)'
+alias gs='git status'
+alias gss='git stash && git stash pop'
 
 ##########
 #  bash  #
@@ -51,7 +56,6 @@ alias cc="clear"
 ############
 # packages #
 ############
-
 # -a : show hidden files
 # -C : auto color
 # -I : ignore the given files/directories

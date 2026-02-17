@@ -1,8 +1,9 @@
-#!/opt/homebrew/bin/zsh
+#!/opt/homesystem/brew/bin/zsh
 
-LGRN='\033[1;32m'
-CYAN='\033[0;36m'
-NC='\033[0m' # No Color
+# Color codes for terminal output
+export LGRN='\033[1;32m'
+export CYAN='\033[0;36m'
+export NC='\033[0m' # No Color
 
 clog() {
   echo "${CYAN}>>>>> $1 <<<<<${NC}"
@@ -18,7 +19,7 @@ then
     echo $PATH
 else
     clog "Updating PATH..."
-    echo "export PATH=\"/usr/local/bin:/usr/local/sbin:~/bin:/opt/homebrew/bin:\$PATH\"" >> ~/.zshrc
+    echo "export PATH=\"/usr/local/bin:/usr/local/sbin:~/bin:/opt/homesystem/brew/bin:\$PATH\"" >> ~/.zshrc
     exec zsh
     clog "Updated PATH:"
     echo $PATH
@@ -33,8 +34,8 @@ if grep -q "HOMEBREW_CASK_OPTS" ~/.zshrc
 then
     clog "Found HOMEBREW_CASK_OPTS in ~/.zshrc, skipping update"
 else
-    clog "Updating homebrew cask install directory to ~/Applications..."
-    echo "export HOMEBREW_CASK_OPTS=\"--appdir=~/Applications\"" >> ~/.zshrc
+    plog "Updating homebrew cask install directory to ~/Applications, run this script again!"
+    echo "\nexport HOMEBREW_CASK_OPTS=\"--appdir=~/Applications\"" >> ~/.zshrc
     exec zsh
 fi
 
@@ -51,21 +52,19 @@ clog "Installing global npm packages..."
 while IFS= read -r package; do
   [[ -z "$package" || "$package" =~ ^# ]] && continue
   npm install -g "$package"
-done < npm/global-packages
+done < system/npm/global-packages
 plog Done!
 
-clog "Installing prerequisites for brew casks"
-sudo softwareupdate --install-rosetta
-
-clog "Installing brew packages and casks..."
+clog "Updating brew..."
 brew doctor
 brew update
-brew bundle --file brew/Brewfile
+clog "Installing brew packages and casks..."
+brew bundle --file system/brew/Brewfile
 
 clog "Symlinking Sublime to subl..."
 sudo ln -sf ~/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
 plog Done!
 
 clog "Updating VLC settings..."
-./applications/vlc/sync import
+./gui/vlc/sync.sh import
 plog Done!

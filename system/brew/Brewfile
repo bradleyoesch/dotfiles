@@ -1,6 +1,3 @@
-# 'brew tap'
-tap "homebrew/cask"
-
 # 'brew install'
 brew "autojump"
 brew "gh"
@@ -20,19 +17,15 @@ brew "zsh-syntax-highlighting"
 
 #'brew install --cask'
 cask "claude-code"
-cask "dropbox"
-cask "flux"
 cask "google-chrome"
 cask "iterm2"
 cask "karabiner-elements"
 cask "meetingbar"
 cask "postman"
 cask "qlcolorcode"
-cask "qlimagesize"
 cask "qlmarkdown"
 cask "qlstephen"
 cask "qlvideo"
-cask "quicklook-json"
 cask "rectangle"
 cask "spotify"
 cask "sublime-text"
