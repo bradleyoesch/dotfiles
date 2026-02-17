@@ -2,9 +2,10 @@
 # top level configs #
 #####################
 
-[user]
-    name = Bradley Oesch
-    email = bradley.oesch@gmail.com
+# Can't have this because it messes with my work setup
+# [user]
+#     name = Bradley Oesch
+#     email = bradley.oesch@gmail.com
 
 [github]
     user = bradleyoesch
