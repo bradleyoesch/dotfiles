@@ -19,6 +19,31 @@
                         ]
                     },
                     {
+                        "description": "Disable bare arrow keys (use ctrl+hjkl instead; shift/option/command combos pass through)",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "left_arrow" },
+                                "to": [{ "key_code": "vk_none" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "down_arrow" },
+                                "to": [{ "key_code": "vk_none" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "up_arrow" },
+                                "to": [{ "key_code": "vk_none" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "right_arrow" },
+                                "to": [{ "key_code": "vk_none" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Ctrl+h/j/k/l to left/down/up/right",
                         "manipulators": [
                             {
