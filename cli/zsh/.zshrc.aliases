@@ -56,7 +56,7 @@ alias cc="clear"
 # -a : show hidden files
 # -C : auto color
 # -I : ignore the given files/directories
-alias tree="tree -aCI 'node_modules|.git|.gitmodules'"
+alias tree="tree -aCI 'node_modules|.git|.gitmodules|.worktrees'"
 
 ########
 # else #
