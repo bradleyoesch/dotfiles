@@ -35,6 +35,12 @@ rebak() {
   fi
 }
 
+# copy file contents to clipboard
+cpp() { pbcopy < "$1" }
+
+# paste clipboard contents to file (replaces file)
+pst() { pbpaste > "$1" }
+
 function git_main_branch() {
   command git rev-parse --git-dir &>/dev/null || return
   local ref
