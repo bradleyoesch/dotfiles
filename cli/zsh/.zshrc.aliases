@@ -19,6 +19,9 @@ alias ls="ls -FG"
 # -h : human readable size
 alias ll="ls -alh"
 
+# -t : sort by most recent
+alias lll="ll -t"
+
 alias cd..="cd .."
 alias ..="cd .."
 alias ...="cd ../.."
