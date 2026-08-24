@@ -92,6 +92,7 @@ else
 fi
 
 clog "Installing brew packages and casks..."
+brew trust --formula atlassian/acli/acli
 brew bundle --file system/brew/Brewfile
 
 if [ ! -L /usr/local/bin/subl ]; then
