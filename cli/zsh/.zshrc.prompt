@@ -1,0 +1,29 @@
+# ~~~ prompt ~~~
+# A self-contained reimplementation of oh-my-zsh's "robbyrussell" theme, so the
+# prompt no longer depends on oh-my-zsh. Same look:
+#
+#   ➜  <dir> git:(<branch>) ✗
+#
+#   * arrow: green on success, red on last-command failure
+#   * <dir>: current directory basename
+#   * git:(...): current branch (or short SHA if detached), only inside a repo
+#   * ✗: shown in yellow when the working tree is dirty (incl. untracked)
+#
+# TODO: maybe replace with Starship someday. Placeholder + activation steps live
+# in cli/starship/starship.toml. If you switch, delete this file and its source
+# line in .zshrc.
+
+autoload -U colors && colors
+setopt PROMPT_SUBST
+
+_prompt_git_info() {
+  local ref
+  ref=$(git symbolic-ref --short HEAD 2>/dev/null) \
+    || ref=$(git rev-parse --short HEAD 2>/dev/null) \
+    || return
+  local dirty=""
+  [[ -n $(git status --porcelain 2>/dev/null) ]] && dirty=" %{$fg[yellow]%}✗"
+  print -n " %{$fg_bold[blue]%}git:(%{$fg[red]%}${ref}%{$fg[blue]%})${dirty}%{$reset_color%}"
+}
+
+PROMPT='%(?:%{$fg_bold[green]%}➜:%{$fg_bold[red]%}➜) %{$fg[cyan]%}%c%{$reset_color%}$(_prompt_git_info) '

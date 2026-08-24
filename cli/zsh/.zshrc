@@ -2,8 +2,9 @@ export PATH="/usr/local/bin:/usr/local/sbin:~/bin:/opt/homebrew/bin:$PATH"
 
 export HOMEBREW_CASK_OPTS=\"--appdir=~/Applications\"
 
-# source the zshrc file created when installing oh-my-zshrc
-source ~/.config/dotfiles/.zshrc.oh-my-zshrc
+# zsh setup (completion, options, plugins) and prompt
+source ~/.config/dotfiles/.zshrc.zsh
+source ~/.config/dotfiles/.zshrc.prompt
 
 # next, our custom shell stuff, order matters
 source ~/.config/dotfiles/.zshrc.constants

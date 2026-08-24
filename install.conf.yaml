@@ -12,7 +12,11 @@
     ~/.config/dotfiles/.zshrc.constants: cli/zsh/.zshrc.constants
     ~/.config/dotfiles/.zshrc.functions: cli/zsh/.zshrc.functions
     ~/.config/dotfiles/.zshrc.grep: cli/zsh/.zshrc.grep
-    ~/.config/dotfiles/.zshrc.oh-my-zshrc: cli/zsh/.zshrc.oh-my-zshrc
+    ~/.config/dotfiles/.zshrc.zsh: cli/zsh/.zshrc.zsh
+    ~/.config/dotfiles/.zshrc.prompt: cli/zsh/.zshrc.prompt
+    ~/.config/dotfiles/plugins/per-directory-history.zsh:
+      path: cli/zsh/plugins/per-directory-history.zsh
+      create: true
     ~/.config/dotfiles/.zshrc: cli/zsh/.zshrc
 
 # Direct symlinks for app-specific locations
