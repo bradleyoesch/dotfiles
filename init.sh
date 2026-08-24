@@ -109,6 +109,18 @@ plog Done!
 
 echo ""
 
+iterm2_prefs="$(pwd)/gui/iterm2"
+if [ "$(defaults read com.googlecode.iterm2 PrefsCustomFolder 2>/dev/null)" = "$iterm2_prefs" ]; then
+    clog "iTerm2 prefs folder already set, skipping"
+else
+    clog "Pointing iTerm2 at custom prefs folder..."
+    defaults write com.googlecode.iterm2 PrefsCustomFolder "$iterm2_prefs"
+    defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+    plog "Done!"
+fi
+
+echo ""
+
 if [ ! -d ~/.tmux/plugins/tpm ]; then
     clog "Installing tmux plugin manager..."
     mkdir -p ~/.tmux/plugins
