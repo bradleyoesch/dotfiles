@@ -20,6 +20,14 @@
     ~/.config/karabiner/karabiner.json: gui/karabiner/karabiner.json
     ~/.tmux.conf: cli/tmux/.tmux.conf
     ~/.vimrc: cli/vim/.vimrc
+    ~/Library/Preferences/glow/glow.yml:
+      path: cli/glow/glow.yml
+      create: true
+      force: true
+    ~/Library/Preferences/glow/monokai.json:
+      path: cli/glow/monokai.json
+      create: true
+      force: true
     ~/Library/Application Support/Sublime Text/Packages/User/Default (OSX).sublime-keymap: gui/sublime/Default (OSX).sublime-keymap
     ~/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings: gui/sublime/Preferences.sublime-settings
 
