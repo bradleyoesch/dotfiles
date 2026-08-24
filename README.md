@@ -72,9 +72,9 @@ cd dotfiles
 Run init script then restart zsh to pick up the changes:
 
 ```bash
-./init.sh
+./bin/setup
 mv ~/.zshrc ~/.zshrc.bak
-./install.sh
+./bin/install
 exec zsh
 ```
 
@@ -199,7 +199,7 @@ To import settings from VLC:
 This project uses [dotbot](https://github.com/anishathalye/dotbot) to manage the installation.
 
 ```bash
-./install.sh && exec zsh
+./bin/install && exec zsh
 ```
 
 ## Contents

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Shared helpers for init.sh and bin/ scripts. Source this, don't execute it.
+# Shared helpers for the bin/ scripts. Source this, don't execute it.
 # printf renders the color escapes in both zsh and bash.
 
 # Emit color only to a real terminal; honor the NO_COLOR convention.

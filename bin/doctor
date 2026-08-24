@@ -4,7 +4,7 @@
 #
 # Packages and symlinks are derived from the source-of-truth files
 # (Brewfile, install.conf.yaml) so this stays in sync automatically.
-# Only the bespoke init.sh steps are hardcoded below.
+# Only the bespoke bin/setup steps are hardcoded below.
 
 DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 source "$DOTFILES_DIR/bin/lib.sh"
@@ -83,7 +83,7 @@ else
     printf "  ${RED}✗${RESET} %s\n" "$f"
   done
   echo ""
-  echo "Run ./init.sh to fix issues."
+  echo "Run bin/setup to fix issues."
 fi
 
 [[ $fail -eq 0 ]]

@@ -1,6 +1,9 @@
 #!/opt/homebrew/bin/zsh
+# Full machine setup. Idempotent, safe to re-run. Run relative to the repo root.
 
-source "$(cd "$(dirname "$0")" && pwd)/bin/lib.sh"
+DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$DOTFILES_DIR"
+source "$DOTFILES_DIR/bin/lib.sh"
 
 if grep -q "export PATH" ~/.zshrc
 then
@@ -84,6 +87,9 @@ fi
 info "Installing brew packages and casks..."
 brew trust --formula atlassian/acli/acli
 brew bundle --file system/brew/Brewfile
+
+info "Linking dotfiles..."
+"$DOTFILES_DIR/bin/install"
 
 if [ ! -L /usr/local/bin/subl ]; then
     info "Symlinking Sublime to subl..."

@@ -5,18 +5,17 @@ Guidance for AI coding agents working in this dotfiles repo.
 ## Project overview
 
 Personal macOS dotfiles. Symlinks are managed by dotbot via
-`install.conf.yaml`. Machine bootstrap runs through `init.sh`. Package sets are
+`install.conf.yaml`. Machine setup runs through `bin/setup`. Package sets are
 declared as data (`system/brew/Brewfile`, `system/npm/global-packages`) and
 looped over, not hand-installed.
 
 ## Layout
 
+* `bin/` — verbs: `setup`, `install`, `update`, `doctor`, plus shared `lib.sh`
 * `cli/` — shell tool configs (zsh, git, tmux, vim, glow)
 * `gui/` — app configs (iTerm2, Sublime, Karabiner, VLC)
 * `system/` — package manifests (brew, npm)
-* `init.sh` — idempotent machine bootstrap
 * `install.conf.yaml` — dotbot symlink + setup declarations
-* `install.sh` — dotbot entrypoint
 * `docs/` — planning and design notes
 
 zsh config is split into files under `cli/zsh/`, symlinked into
@@ -24,9 +23,10 @@ zsh config is split into files under `cli/zsh/`, symlinked into
 
 ## Setup commands
 
-* Install symlinks: `./install.sh`
-* Full bootstrap: `./init.sh`
-* Install brew packages: `brew bundle --file system/brew/Brewfile`
+* Full machine setup: `bin/setup`
+* Symlinks only: `bin/install`
+* Update managed tools: `bin/update`
+* Health check: `bin/doctor`
 
 ## Conventions
 
@@ -34,9 +34,9 @@ zsh config is split into files under `cli/zsh/`, symlinked into
 * Declare packages as data in `system/` manifests, then loop. Don't hand-write install lines.
 * New symlinks go in `install.conf.yaml`, not ad-hoc `ln` calls.
 * New tools go in the `Brewfile`, sorted within their section (brews, then casks).
-* Match the existing shell style in `init.sh` (`clog`/`plog` helpers, guard clauses).
+* Match the existing shell style in `bin/setup` (`info`/`success` helpers from `bin/lib.sh`, guard clauses).
 * `bin/doctor` derives package and symlink checks from the `Brewfile` and
-  `install.conf.yaml`. Adding a bespoke `init.sh` step means adding a matching
+  `install.conf.yaml`. Adding a bespoke `bin/setup` step means adding a matching
   check to the "bespoke steps" section of `bin/doctor` by hand.
 
 ## Commit guidelines
