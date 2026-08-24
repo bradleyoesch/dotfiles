@@ -35,6 +35,9 @@ zsh config is split into files under `cli/zsh/`, symlinked into
 * New symlinks go in `install.conf.yaml`, not ad-hoc `ln` calls.
 * New tools go in the `Brewfile`, sorted within their section (brews, then casks).
 * Match the existing shell style in `init.sh` (`clog`/`plog` helpers, guard clauses).
+* `bin/doctor` derives package and symlink checks from the `Brewfile` and
+  `install.conf.yaml`. Adding a bespoke `init.sh` step means adding a matching
+  check to the "bespoke steps" section of `bin/doctor` by hand.
 
 ## Commit guidelines
 

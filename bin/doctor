@@ -1,0 +1,80 @@
+#!/bin/bash
+# Read-only health check. Verifies tools, symlinks, and plugins are in place.
+# Changes nothing. Exits non-zero if any check fails.
+#
+# Packages and symlinks are derived from the source-of-truth files
+# (Brewfile, install.conf.yaml) so this stays in sync automatically.
+# Only the bespoke init.sh steps are hardcoded below.
+
+DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+
+pass=0
+fail=0
+failures=()
+
+check() {
+  if eval "$2" &>/dev/null; then
+    echo "  ✓ $1"
+    ((pass++))
+  else
+    echo "  ✗ $1"
+    ((fail++))
+    failures+=("$1")
+  fi
+}
+
+echo "==> Homebrew (from Brewfile)"
+check "brew installed" "command -v brew"
+# Check presence, not currency. Outdated-but-installed is bin/update's job.
+installed_formulae="$(brew list --formula -1 2>/dev/null)"
+installed_casks="$(brew list --cask -1 2>/dev/null)"
+while IFS= read -r name; do
+  [[ -z "$name" ]] && continue
+  check "brew $name" "grep -qx '${name##*/}' <<< \"\$installed_formulae\""
+done < <(sed -nE 's/^brew "([^"]+)".*/\1/p' "$DOTFILES_DIR/system/brew/Brewfile")
+while IFS= read -r name; do
+  [[ -z "$name" ]] && continue
+  check "cask $name" "grep -qx '${name##*/}' <<< \"\$installed_casks\""
+done < <(sed -nE 's/^cask "([^"]+)".*/\1/p' "$DOTFILES_DIR/system/brew/Brewfile")
+
+echo ""
+echo "==> Symlinks (from install.conf.yaml)"
+# Pull every target in a '- link:' block: indented lines whose key starts with ~
+targets=$(awk '
+  /^- link:/ { inlink=1; next }
+  /^- [a-z]/ { inlink=0 }
+  inlink && /^[[:space:]]+~/ {
+    sub(/:.*/, ""); sub(/^[[:space:]]+/, ""); print
+  }
+' "$DOTFILES_DIR/install.conf.yaml")
+
+while IFS= read -r target; do
+  [[ -z "$target" ]] && continue
+  expanded="${target/#\~/$HOME}"
+  check "$target" "test -L \"$expanded\""
+done <<< "$targets"
+
+echo ""
+echo "==> Config wiring & bespoke steps"
+check "~/.zshrc sources dotfiles" "grep -q 'source ~/.config/dotfiles/.zshrc' \"\$HOME/.zshrc\""
+check "~/.gitconfig includes dotfiles" "grep -q 'path = ~/.config/dotfiles/.gitconfig' \"\$HOME/.gitconfig\""
+check "nvm installed" "test -s \"\$HOME/.nvm/nvm.sh\""
+check "node active" "command -v node"
+check "tmux tpm installed" "test -d \"\$HOME/.tmux/plugins/tpm\""
+check "vim-sensible installed" "test -d \"\$HOME/.vim/pack/tpope/start/sensible\""
+check "subl symlink exists" "test -L /usr/local/bin/subl"
+check "iTerm2 custom prefs set" "test \"\$(defaults read com.googlecode.iterm2 PrefsCustomFolder 2>/dev/null)\" = '$DOTFILES_DIR/gui/iterm2'"
+
+echo ""
+echo "==> Results: $pass passed, $fail failed"
+if [[ $fail -gt 0 ]]; then
+  echo ""
+  echo "Failed checks:"
+  for f in "${failures[@]}"; do
+    echo "  ✗ $f"
+  done
+  echo ""
+  echo "Run ./init.sh to fix issues."
+fi
+
+[[ $fail -eq 0 ]]
