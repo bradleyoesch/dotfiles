@@ -107,6 +107,19 @@ Read-only. For each check, print pass/fail and tally. Model on baweaver's.
 6. Rewrite `README.md` down to the one-liner plus a script table.
 7. Delete the manual-steps section of the README once bootstrap covers it.
 
+Remaining README work (deferred): trim the app sections that setup now
+automates, so they only list what still needs a human.
+
+* iTerm2, setup already points it at the custom prefs folder, so drop the
+  "Load preferences from a custom folder" and profile/colors/keybindings import
+  steps. Keep only the global hotkey.
+* VLC, setup runs `sync.sh import`, so reduce to a note that it's automatic plus
+  the `export` command for capturing changes.
+* Sublime, settings and the `subl` symlink are automated, keep only the
+  theme-reinstall note.
+* Fold away the standalone "Installation" section; `bin/install` is part of
+  `bin/setup` and the scripts table now covers it.
+
 ## Dropping oh-my-zsh (decided)
 
 Decision: drop oh-my-zsh. Went through it feature by feature. The big three
