@@ -27,8 +27,14 @@ fi
 
 echo ""
 
-# ponytail: node setup is skipped until nvm exists. nvm vs mise is still an open
-# decision (see docs/setup-automation-plan.md); once settled, install it here.
+# nvm (not brew): Indeed's .indeed/*.sh scripts expect it at ~/.nvm.
+# PROFILE=/dev/null so the installer doesn't append its own lines to ~/.zshrc,
+# our .zshrc already sources nvm.
+if [ ! -s ~/.nvm/nvm.sh ]; then
+    info "Installing nvm..."
+    PROFILE=/dev/null bash -c 'curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.7/install.sh | bash'
+fi
+
 if [ -s ~/.nvm/nvm.sh ]; then
     source ~/.nvm/nvm.sh
     current_node=$(nvm current)

@@ -107,9 +107,22 @@ Read-only. For each check, print pass/fail and tally. Model on baweaver's.
 6. Rewrite `README.md` down to the one-liner plus a script table.
 7. Delete the manual-steps section of the README once bootstrap covers it.
 
-Steps 1-7 done, plus the app-section trimming (iTerm2, VLC, Sublime reduced to
-what still needs a human, standalone "Installation" section folded away). The
-only remaining setup work is automating node once nvm vs mise is settled.
+All steps done. Steps 1-7, plus the app-section trimming (iTerm2, VLC, Sublime
+reduced to what still needs a human, standalone "Installation" section folded
+away), plus node automation (`bin/setup` installs nvm if missing). `bin/bootstrap`
+now takes a fresh machine to fully configured, including node, in one command.
+
+### nvm vs mise (decided: nvm)
+
+Stay on nvm. Indeed's paved-path tooling calls the `nvm` command directly
+(`.indeed/setup.sh`, `run.sh`, `build.sh` across flex, identity, and other
+repos), so nvm must stay installed. That also removes mise's main draw: those
+scripts need nvm loaded anyway, so switching wouldn't cut shell-startup cost,
+it would just add a second version manager and PATH conflicts.
+
+`bin/setup` installs nvm via the official installer (pinned tag) at `~/.nvm`,
+not brew, because the Indeed scripts and our `.zshrc` both expect that path.
+`PROFILE=/dev/null` keeps the installer from editing `~/.zshrc`.
 
 ## Dropping oh-my-zsh (decided)
 
@@ -148,9 +161,9 @@ those changes surgical.
   with literal escaped quotes, so the value includes stray `"` characters. Should
   be `export HOMEBREW_CASK_OPTS="--appdir=~/Applications"`.
 
-## Open questions
+## Resolved questions
 
-* nvm vs mise for node? mise is faster and multi-language, but a real migration
-  and you only use node today. Defer unless you want more languages.
-* Where does `bin/bootstrap` get curl'd from? A raw GitHub URL to the script, or
-  keep it as "clone then run". Raw URL is the true one-liner.
+* nvm vs mise, decided nvm (see the section above).
+* Where `bin/bootstrap` is curl'd from, resolved. The README uses the raw
+  GitHub URL (`raw.githubusercontent.com/.../bin/bootstrap`) as the true
+  one-command install, with clone-then-`bin/setup` as the alternative.

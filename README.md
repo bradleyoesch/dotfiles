@@ -25,9 +25,6 @@ Then reload the shell:
 exec zsh
 ```
 
-Node isn't automated yet. Install nvm and it'll be picked up on the next
-`./bin/setup`.
-
 ### Scripts
 
 * `bin/bootstrap` — fresh-machine entry: Xcode CLT, Homebrew, git, clone, then setup
