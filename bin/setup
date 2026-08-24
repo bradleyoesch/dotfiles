@@ -15,7 +15,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo ""
 
-info "Creating ~/Applications for personal applications..."
 mkdir -p ~/Applications
 
 # casks install into ~/Applications; export now so brew bundle uses it this run
@@ -36,6 +35,7 @@ if [ ! -s ~/.nvm/nvm.sh ]; then
 fi
 
 if [ -s ~/.nvm/nvm.sh ]; then
+    info "Checking nvm..."
     source ~/.nvm/nvm.sh
     current_node=$(nvm current)
     lts_version=$(nvm version-remote --lts)
