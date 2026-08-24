@@ -1,29 +1,79 @@
 # ~~~ prompt ~~~
-# A self-contained reimplementation of oh-my-zsh's "robbyrussell" theme, so the
-# prompt no longer depends on oh-my-zsh. Same look:
 #
-#   ➜  <dir> git:(<branch>) ✗
+# Self-contained reimplementation of oh-my-zsh's "robbyrussell" theme, so the
+# prompt no longer depends on oh-my-zsh (which we dropped). A few deliberate
+# changes from the original robbyrussell:
+#   * no "git:" prefix on the branch
+#   * dirty check removed; the trailing "$" is always shown (just a prompt symbol)
+#   * shows in-progress git operations, which robbyrussell never did
 #
-#   * arrow: green on success, red on last-command failure
-#   * <dir>: current directory basename
-#   * git:(...): current branch (or short SHA if detached), only inside a repo
-#   * ✗: shown in yellow when the working tree is dirty (incl. untracked)
+# What it looks like:
+#   ➜  <dir> (<branch>) $
+#   ➜  <dir> (<tag>) $                     detached on an exact tag
+#   ➜  <dir> (<sha>) $                     detached, no tag
+#   ➜  <dir> (<branch>:<sha>:2/5) $        mid-rebase: orig branch, commit being applied, step n/m
+#   ➜  <dir> (<branch>:merge) $            mid-merge / cherry-pick / revert
 #
-# TODO: maybe replace with Starship someday. Placeholder + activation steps live
-# in cli/starship/starship.toml. If you switch, delete this file and its source
-# line in .zshrc.
+# Everything inside the parens is "branch" followed by zero or more ":field"
+# extras. Colors: arrow green(ok)/red(fail), dir cyan, parens blue, colons cyan,
+# branch/ref red, each extra field magenta, trailing "$" bold yellow
+# (robbyrussell's ✗ color).
+#
+# zsh prompt mechanics: PROMPT_SUBST (set below) re-runs $(...) every prompt, so
+# _prompt_git_info is evaluated fresh each time. %{...%} wraps the color escapes
+# as zero-width so line-editing math stays correct.
 
 autoload -U colors && colors
 setopt PROMPT_SUBST
 
 _prompt_git_info() {
-  local ref
-  ref=$(git symbolic-ref --short HEAD 2>/dev/null) \
-    || ref=$(git rev-parse --short HEAD 2>/dev/null) \
-    || return
-  local dirty=""
-  [[ -n $(git status --porcelain 2>/dev/null) ]] && dirty=" %{$fg[yellow]%}✗"
-  print -n " %{$fg_bold[blue]%}git:(%{$fg[red]%}${ref}%{$fg[blue]%})${dirty}%{$reset_color%}"
+  # bail (print nothing) when we're not in a git work tree
+  git rev-parse --is-inside-work-tree &>/dev/null || return
+
+  # ref    = branch / tag / sha shown first inside the parens
+  # extras = additional ":field" parts after the branch (a sha, step count, or op name)
+  local gd ref
+  local -a extras
+  gd=$(git rev-parse --git-dir 2>/dev/null)   # works in linked worktrees too
+
+  if [[ -d "$gd/rebase-merge" ]]; then
+    # rebase, "merge" backend (interactive and, since git 2.26, the default).
+    # HEAD is detached mid-rebase, so recover the original branch from head-name
+    # (same trick __git_ps1 / vcs_info use). Add the commit being applied + n/m.
+    ref=$(sed 's,^refs/heads/,,' "$gd/rebase-merge/head-name" 2>/dev/null)
+    extras=("$(git rev-parse --short HEAD 2>/dev/null)" "$(cat "$gd/rebase-merge/msgnum" 2>/dev/null)/$(cat "$gd/rebase-merge/end" 2>/dev/null)")
+  elif [[ -d "$gd/rebase-apply" ]]; then
+    # rebase, "apply" backend (git am / older rebase). Counts live in next/last.
+    ref=$(sed 's,^refs/heads/,,' "$gd/rebase-apply/head-name" 2>/dev/null)
+    extras=("$(git rev-parse --short HEAD 2>/dev/null)" "$(cat "$gd/rebase-apply/next" 2>/dev/null)/$(cat "$gd/rebase-apply/last" 2>/dev/null)")
+  else
+    # normal case: branch name, else exact tag, else short SHA (robbyrussell order)
+    ref=$(git symbolic-ref --short HEAD 2>/dev/null) \
+      || ref=$(git describe --tags --exact-match HEAD 2>/dev/null) \
+      || ref=$(git rev-parse --short HEAD 2>/dev/null)
+    # merge/cherry-pick/revert keep HEAD on the branch, so just label the op.
+    # No step counts: git doesn't expose them cleanly (merge is one op; cherry-pick
+    # and revert sequences track progress in .git/sequencer, not a simple n/m file).
+    if [[ -f "$gd/MERGE_HEAD" ]]; then
+      extras=(merge)
+    elif [[ -f "$gd/CHERRY_PICK_HEAD" ]]; then
+      extras=(cherry-pick)
+    elif [[ -f "$gd/REVERT_HEAD" ]]; then
+      extras=(revert)
+    fi
+  fi
+
+  # each extra becomes ":field" with a blue colon (structural, like the parens)
+  # and a magenta field; no extras means a plain "(branch)".
+  local sep=""
+  local e
+  for e in "${extras[@]}"; do
+    sep+="%{$fg[cyan]%}:%{$fg[magenta]%}${e}"
+  done
+
+  # " (branch:extra:extra)"  — leading space separates it from the dir
+  print -n " %{$fg_bold[blue]%}(%{$fg[red]%}${ref}${sep}%{$fg_bold[blue]%})%{$reset_color%}"
 }
 
-PROMPT='%(?:%{$fg_bold[green]%}➜:%{$fg_bold[red]%}➜) %{$fg[cyan]%}%c%{$reset_color%}$(_prompt_git_info) '
+# arrow (green ok / red fail) + cyan dir basename + git segment + always-yellow "$"
+PROMPT='%(?:%{$fg_bold[green]%}➜:%{$fg_bold[red]%}➜) %{$fg[cyan]%}%c%{$reset_color%}$(_prompt_git_info) %{$fg_bold[yellow]%}$%{$reset_color%} '

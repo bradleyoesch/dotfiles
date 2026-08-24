@@ -130,13 +130,12 @@ Decision: drop oh-my-zsh. Went through it feature by feature. The big three
 (`zsh-autosuggestions`, `zsh-syntax-highlighting`, `zsh-history-substring-search`)
 are already sourced straight from brew, so they survive the drop untouched.
 
-Key realization: we can drop oh-my-zsh NOW and only lose the prompt formatting
-until Starship is set up. Everything else ports cleanly. A bare zsh prompt (or a
-tiny placeholder) covers the gap.
+Key realization: we can drop oh-my-zsh NOW and only lose the prompt formatting.
+Everything else ports cleanly.
 
 | Feature | Decision |
 |---------|----------|
-| Prompt (robbyrussell) | Replace with Starship later. Bare/minimal prompt in the meantime. |
+| Prompt (robbyrussell) | Reimplemented self-contained in `cli/zsh/.zshrc.prompt` (dir + branch + git-state + dirty marker), no framework. |
 | Completion (`compinit`) | Port: `autoload -Uz compinit && compinit` with a cache guard. |
 | zsh options | Port a curated set of the defaults oh-my-zsh set silently. |
 | autojump | Keep. Source brew's `autojump.sh` directly (one line). |
@@ -144,9 +143,6 @@ tiny placeholder) covers the gap.
 | jump | Drop. autojump's `j partial-name` covers the need; `mark` never used. |
 | safe-paste | Drop. Modern zsh bracketed paste covers it. |
 | urltools | Drop. Unused. |
-
-Starship is queued separately: placeholder at `cli/starship/starship.toml`, not
-wired up. Activation steps live in that file's header.
 
 ## Known issues / cleanup (resolved)
 
