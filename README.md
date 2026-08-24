@@ -54,7 +54,7 @@ Set up google account
 
 #### Extensions
 
-- Hover Zoom+ - import settings from [`gui/chrome/hoverzoon.json`](gui/chrome/hoverzoon.json)
+- Hover Zoom+ - import settings from [`gui/chrome/hoverzoom.json`](gui/chrome/hoverzoom.json)
   - To export: Extension Icon > Options > Advanced > Export
   - `echo '<JSON>' | jq -S '.' > gui/chrome/hoverzoom.json`
 - LastPass - log in

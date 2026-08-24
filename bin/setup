@@ -6,23 +6,15 @@ DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$DOTFILES_DIR"
 source "$DOTFILES_DIR/bin/lib.sh"
 
-# ensure ~/.zshrc exports PATH for future shells, and put brew on PATH for this run
-if ! grep -q "export PATH" ~/.zshrc; then
-    info "Adding PATH to ~/.zshrc..."
-    echo 'export PATH="/usr/local/bin:/usr/local/sbin:~/bin:/opt/homebrew/bin:$PATH"' >> ~/.zshrc
-fi
+# put brew on PATH for this run; interactive shells get PATH from cli/zsh/.zshrc
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo ""
 
 mkdir -p ~/Applications
 
-# casks install into ~/Applications; export now so brew bundle uses it this run
+# casks install into ~/Applications; export for this run (interactive shells get it from cli/zsh/.zshrc)
 export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications"
-if ! grep -q "HOMEBREW_CASK_OPTS" ~/.zshrc; then
-    info "Adding HOMEBREW_CASK_OPTS to ~/.zshrc..."
-    echo '\nexport HOMEBREW_CASK_OPTS="--appdir=~/Applications"' >> ~/.zshrc
-fi
 
 echo ""
 

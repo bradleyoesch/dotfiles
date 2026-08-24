@@ -148,18 +148,14 @@ tiny placeholder) covers the gap.
 Starship is queued separately: placeholder at `cli/starship/starship.toml`, not
 wired up. Activation steps live in that file's header.
 
-## Known issues / cleanup
+## Known issues / cleanup (resolved)
 
-Pre-existing, noticed while building the `bin/` verbs. Not fixed yet to keep
-those changes surgical.
-
-* `bin/setup` appends `export PATH` and `export HOMEBREW_CASK_OPTS` directly to
-  `~/.zshrc`. This is now redundant, the dotfiles `cli/zsh/.zshrc` already sets
-  both, and dotbot adds a `source` line for it. The direct appends could be
-  dropped, leaving `~/.zshrc` to just source the managed config.
-* `cli/zsh/.zshrc` line 3 has `export HOMEBREW_CASK_OPTS=\"--appdir=~/Applications\"`
-  with literal escaped quotes, so the value includes stray `"` characters. Should
-  be `export HOMEBREW_CASK_OPTS="--appdir=~/Applications"`.
+* `bin/setup` no longer appends `export PATH` / `export HOMEBREW_CASK_OPTS` to
+  `~/.zshrc`. Setup exports them in-process (`brew shellenv` and a direct
+  `HOMEBREW_CASK_OPTS` export), and interactive shells get them from the managed
+  `cli/zsh/.zshrc`.
+* Fixed the escaped-quotes bug in `cli/zsh/.zshrc`; it now reads
+  `export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications"`.
 
 ## Resolved questions
 

@@ -1,6 +1,6 @@
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:/opt/homebrew/bin:$PATH"
 
-export HOMEBREW_CASK_OPTS=\"--appdir=~/Applications\"
+export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications"
 
 # zsh setup (completion, options, plugins) and prompt
 source ~/.config/dotfiles/.zshrc.zsh
