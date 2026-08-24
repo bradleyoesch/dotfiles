@@ -41,6 +41,10 @@ cpp() { pbcopy < "$1" }
 # paste clipboard contents to file (replaces file)
 pst() { pbpaste > "$1" }
 
+# glow: apply the monokai theme. glow.yml can't expand $HOME in its `style`
+# path, so pass an absolute path here where the shell expands it.
+glow() { command glow --style "$HOME/Library/Preferences/glow/monokai.json" "$@" }
+
 function git_main_branch() {
   command git rev-parse --git-dir &>/dev/null || return
   local ref

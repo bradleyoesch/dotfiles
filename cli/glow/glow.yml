@@ -1,5 +1,7 @@
 # style name or JSON path (default "auto")
-style: "$HOME/Library/Preferences/glow/monokai.json"
+# glow won't expand $HOME/~ here, so the monokai theme is applied by the glow()
+# wrapper in cli/zsh/.zshrc.functions, which passes --style with $HOME expanded.
+style: "auto"
 # mouse support (TUI-mode only)
 mouse: false
 # use pager to display markdown
