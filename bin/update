@@ -1,0 +1,31 @@
+#!/bin/bash
+# Update everything this repo manages: brew, node, npm globals, editor plugins.
+# Idempotent and safe to re-run.
+
+set -uo pipefail
+
+DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+source "$DOTFILES_DIR/bin/lib.sh"
+
+info "Updating Homebrew..."
+brew update
+brew upgrade
+brew bundle --file "$DOTFILES_DIR/system/brew/Brewfile"
+
+info "Updating node LTS..."
+source ~/.nvm/nvm.sh
+nvm install --lts
+
+info "Updating global npm packages..."
+while IFS= read -r package; do
+  [[ -z "$package" || "$package" =~ ^# ]] && continue
+  npm install -g "$package"
+done < "$DOTFILES_DIR/system/npm/global-packages"
+
+info "Updating tmux plugin manager..."
+[[ -d ~/.tmux/plugins/tpm ]] && git -C ~/.tmux/plugins/tpm pull --ff-only
+
+info "Updating vim-sensible..."
+[[ -d ~/.vim/pack/tpope/start/sensible ]] && git -C ~/.vim/pack/tpope/start/sensible pull --ff-only
+
+success "Done!"

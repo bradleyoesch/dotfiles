@@ -7,6 +7,7 @@
 # Only the bespoke init.sh steps are hardcoded below.
 
 DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+source "$DOTFILES_DIR/bin/lib.sh"
 
 pass=0
 fail=0
@@ -14,14 +15,20 @@ failures=()
 
 check() {
   if eval "$2" &>/dev/null; then
-    echo "  ✓ $1"
+    printf "  ${GREEN}✓${RESET} %s\n" "$1"
     ((pass++))
   else
-    echo "  ✗ $1"
+    printf "  ${RED}✗${RESET} %s\n" "$1"
     ((fail++))
     failures+=("$1")
   fi
 }
+
+if [[ "${1:-}" == "--fail" ]]; then
+  echo "==> Forced failure (--fail)"
+  check "forced failure" "false"
+  echo ""
+fi
 
 echo "==> Homebrew (from Brewfile)"
 check "brew installed" "command -v brew"
@@ -66,12 +73,14 @@ check "subl symlink exists" "test -L /usr/local/bin/subl"
 check "iTerm2 custom prefs set" "test \"\$(defaults read com.googlecode.iterm2 PrefsCustomFolder 2>/dev/null)\" = '$DOTFILES_DIR/gui/iterm2'"
 
 echo ""
-echo "==> Results: $pass passed, $fail failed"
-if [[ $fail -gt 0 ]]; then
+if [[ $fail -eq 0 ]]; then
+  printf "==> Results: ${GREEN}%d passed${RESET}, %d failed\n" "$pass" "$fail"
+else
+  printf "==> Results: %d passed, ${RED}%d failed${RESET}\n" "$pass" "$fail"
   echo ""
   echo "Failed checks:"
   for f in "${failures[@]}"; do
-    echo "  ✗ $f"
+    printf "  ${RED}✗${RESET} %s\n" "$f"
   done
   echo ""
   echo "Run ./init.sh to fix issues."

@@ -1,40 +1,30 @@
 #!/opt/homebrew/bin/zsh
 
-# Color codes for terminal output
-export LGRN='\033[1;32m'
-export CYAN='\033[0;36m'
-export NC='\033[0m' # No Color
-
-clog() {
-  echo "${CYAN}>>>>> $1 <<<<<${NC}"
-}
-plog() {
-  echo "${LGRN}>>>>> $1 <<<<<${NC}"
-}
+source "$(cd "$(dirname "$0")" && pwd)/bin/lib.sh"
 
 if grep -q "export PATH" ~/.zshrc
 then
-    clog "Found \"export PATH\" in ~/.zshrc, skipping update"
-    clog "Existing PATH:"
+    info "Found \"export PATH\" in ~/.zshrc, skipping update"
+    info "Existing PATH:"
     echo $PATH
 else
-    clog "Updating PATH..."
+    info "Updating PATH..."
     echo "export PATH=\"/usr/local/bin:/usr/local/sbin:~/bin:/opt/homesystem/brew/bin:\$PATH\"" >> ~/.zshrc
     exec zsh
-    clog "Updated PATH:"
+    info "Updated PATH:"
     echo $PATH
 fi
 
 echo ""
 
-clog "Creating ~/Applications for personal applications..."
+info "Creating ~/Applications for personal applications..."
 mkdir -p ~/Applications
 
 if grep -q "HOMEBREW_CASK_OPTS" ~/.zshrc
 then
-    clog "Found HOMEBREW_CASK_OPTS in ~/.zshrc, skipping update"
+    info "Found HOMEBREW_CASK_OPTS in ~/.zshrc, skipping update"
 else
-    plog "Updating homebrew cask install directory to ~/Applications, run this script again!"
+    success "Updating homebrew cask install directory to ~/Applications, run this script again!"
     echo "\nexport HOMEBREW_CASK_OPTS=\"--appdir=~/Applications\"" >> ~/.zshrc
     exec zsh
 fi
@@ -45,11 +35,11 @@ source ~/.nvm/nvm.sh
 current_node=$(nvm current)
 lts_version=$(nvm version-remote --lts)
 if [ "$current_node" = "$lts_version" ]; then
-    clog "Node LTS ($lts_version) already installed and active, skipping"
+    info "Node LTS ($lts_version) already installed and active, skipping"
 else
-    clog "Installing latest node LTS..."
+    info "Installing latest node LTS..."
     nvm install --lts
-    plog "Done!"
+    success "Done!"
 fi
 
 echo ""
@@ -63,13 +53,13 @@ while IFS= read -r package; do
 done < system/npm/global-packages
 
 if [ ${#missing_packages[@]} -eq 0 ]; then
-    clog "All npm packages already installed, skipping"
+    info "All npm packages already installed, skipping"
 else
-    clog "Installing missing global npm packages..."
+    info "Installing missing global npm packages..."
     for package in "${missing_packages[@]}"; do
       npm install -g "$package"
     done
-    plog "Done!"
+    success "Done!"
 fi
 
 brew_repo="/opt/homebrew/.git"
@@ -79,64 +69,64 @@ if [ -d "$brew_repo" ]; then
     time_diff=$((current_time - last_update))
 
     if [ $time_diff -lt 86400 ]; then
-        clog "Brew updated within the last 24 hours, skipping update"
+        info "Brew updated within the last 24 hours, skipping update"
     else
-        clog "Updating brew..."
+        info "Updating brew..."
         brew doctor
         brew update
     fi
 else
-    clog "Updating brew..."
+    info "Updating brew..."
     brew doctor
     brew update
 fi
 
-clog "Installing brew packages and casks..."
+info "Installing brew packages and casks..."
 brew trust --formula atlassian/acli/acli
 brew bundle --file system/brew/Brewfile
 
 if [ ! -L /usr/local/bin/subl ]; then
-    clog "Symlinking Sublime to subl..."
+    info "Symlinking Sublime to subl..."
     sudo ln -sf ~/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
-    plog "Done!"
+    success "Done!"
 else
-    clog "subl symlink already exists, skipping"
+    info "subl symlink already exists, skipping"
 fi
 
-clog "Updating VLC settings..."
+info "Updating VLC settings..."
 ./gui/vlc/sync.sh import
-plog Done!
+success Done!
 
 echo ""
 
 iterm2_prefs="$(pwd)/gui/iterm2"
 if [ "$(defaults read com.googlecode.iterm2 PrefsCustomFolder 2>/dev/null)" = "$iterm2_prefs" ]; then
-    clog "iTerm2 prefs folder already set, skipping"
+    info "iTerm2 prefs folder already set, skipping"
 else
-    clog "Pointing iTerm2 at custom prefs folder..."
+    info "Pointing iTerm2 at custom prefs folder..."
     defaults write com.googlecode.iterm2 PrefsCustomFolder "$iterm2_prefs"
     defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
-    plog "Done!"
+    success "Done!"
 fi
 
 echo ""
 
 if [ ! -d ~/.tmux/plugins/tpm ]; then
-    clog "Installing tmux plugin manager..."
+    info "Installing tmux plugin manager..."
     mkdir -p ~/.tmux/plugins
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    plog "Done!"
+    success "Done!"
 else
-    clog "tmux plugin manager already installed, skipping"
+    info "tmux plugin manager already installed, skipping"
 fi
 
 echo ""
 
 if [ ! -d ~/.vim/pack/tpope/start/sensible ]; then
-    clog "Installing vim-sensible..."
+    info "Installing vim-sensible..."
     mkdir -p ~/.vim/pack/tpope/start
     git clone https://tpope.io/vim/sensible.git ~/.vim/pack/tpope/start/sensible
-    plog "Done!"
+    success "Done!"
 else
-    clog "vim-sensible already installed, skipping"
+    info "vim-sensible already installed, skipping"
 fi
