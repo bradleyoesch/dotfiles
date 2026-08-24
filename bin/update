@@ -7,10 +7,10 @@ set -uo pipefail
 DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 source "$DOTFILES_DIR/bin/lib.sh"
 
-info "Updating Homebrew..."
+brewfile="$DOTFILES_DIR/system/brew/Brewfile"
 brew update
-brew upgrade
-brew bundle --file "$DOTFILES_DIR/system/brew/Brewfile"
+brew bundle --file "$brewfile"                                 # install anything missing
+brew upgrade $(brew bundle list --file "$brewfile" --formula)  # only declared formulae; casks self-update
 
 info "Updating node LTS..."
 source ~/.nvm/nvm.sh
