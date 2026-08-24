@@ -74,20 +74,8 @@ Set up google account
 
 ### iTerm2
 
-Load iTerm2 settings:
-
-`General > Preferences > Load preferences from a custom folder or URL`
-- [`gui/iterm2/`](gui/iterm2/)
-
-
-`Profiles > Other Actions... > Import JSON Profiles...`
-- [`gui/iterm2/profile.json`](gui/iterm2/profile.json)
-
-`Profiles > Colors > Color Presets... > Import...`
-- [`gui/iterm2/monokai-bradley.itermcolors`](gui/iterm2/monokai-bradley.itermcolors)
-
-`Keys > Key Bindings > Presets... > Import`
-- [`gui/iterm2/keybindings.itermkeymap`](gui/iterm2/keybindings.itermkeymap)
+Settings load automatically, `bin/setup` points iTerm2 at the custom prefs
+folder ([`gui/iterm2/`](gui/iterm2/)).
 
 Set global hotkey:
 `Preferences > Keys > Hotkey > cmd + opt + `
@@ -103,15 +91,8 @@ Log in with Facebook, double check settings
 
 ### Sublime Text
 
-Settings should be copied for you already after installing.
-
-You can open from the terminal with `subl`:
-
-```bash
-subl ~/.zshrc
-```
-
-The theme may be broken, so comment it out and reinstall:
+Settings and the `subl` command are set up automatically. If the theme looks
+broken, reinstall it:
 
 - `cmd + ,` for preferences
 - visit https://monokai.pro/sublime-text to install (may be under `Monokai+`)
@@ -123,26 +104,11 @@ Download and set up: https://transmissionbt.com/download.html
 
 ### VLC
 
-Settings should be copied for you already after installing.
-
-To import settings into VLC:
-
-```bash
-./gui/vlc/sync.sh import
-```
-
-To import settings from VLC:
+Settings load automatically, `bin/setup` runs the import. To capture changes
+you make in VLC back into the repo:
 
 ```bash
 ./gui/vlc/sync.sh export
-```
-
-## Installation
-
-This project uses [dotbot](https://github.com/anishathalye/dotbot) to manage the installation.
-
-```bash
-./bin/install && exec zsh
 ```
 
 ## Contents
