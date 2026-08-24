@@ -15,6 +15,7 @@
 ####################
 
 [diff]
+    algorithm = histogram
     colorMoved = default
     renames = copies
     indentHeuristic = true
