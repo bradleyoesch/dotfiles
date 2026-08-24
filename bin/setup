@@ -1,68 +1,71 @@
-#!/opt/homebrew/bin/zsh
+#!/usr/bin/env zsh
 # Full machine setup. Idempotent, safe to re-run. Run relative to the repo root.
+# env zsh so it runs under system zsh on a fresh machine and brew's zsh after.
 
 DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$DOTFILES_DIR"
 source "$DOTFILES_DIR/bin/lib.sh"
 
-if grep -q "export PATH" ~/.zshrc
-then
-    info "Found \"export PATH\" in ~/.zshrc, skipping update"
-    info "Existing PATH:"
-    echo $PATH
-else
-    info "Updating PATH..."
-    echo "export PATH=\"/usr/local/bin:/usr/local/sbin:~/bin:/opt/homesystem/brew/bin:\$PATH\"" >> ~/.zshrc
-    exec zsh
-    info "Updated PATH:"
-    echo $PATH
+# ensure ~/.zshrc exports PATH for future shells, and put brew on PATH for this run
+if ! grep -q "export PATH" ~/.zshrc; then
+    info "Adding PATH to ~/.zshrc..."
+    echo 'export PATH="/usr/local/bin:/usr/local/sbin:~/bin:/opt/homebrew/bin:$PATH"' >> ~/.zshrc
 fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo ""
 
 info "Creating ~/Applications for personal applications..."
 mkdir -p ~/Applications
 
-if grep -q "HOMEBREW_CASK_OPTS" ~/.zshrc
-then
-    info "Found HOMEBREW_CASK_OPTS in ~/.zshrc, skipping update"
-else
-    success "Updating homebrew cask install directory to ~/Applications, run this script again!"
-    echo "\nexport HOMEBREW_CASK_OPTS=\"--appdir=~/Applications\"" >> ~/.zshrc
-    exec zsh
+# casks install into ~/Applications; export now so brew bundle uses it this run
+export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications"
+if ! grep -q "HOMEBREW_CASK_OPTS" ~/.zshrc; then
+    info "Adding HOMEBREW_CASK_OPTS to ~/.zshrc..."
+    echo '\nexport HOMEBREW_CASK_OPTS="--appdir=~/Applications"' >> ~/.zshrc
 fi
 
 echo ""
 
-source ~/.nvm/nvm.sh
-current_node=$(nvm current)
-lts_version=$(nvm version-remote --lts)
-if [ "$current_node" = "$lts_version" ]; then
-    info "Node LTS ($lts_version) already installed and active, skipping"
+# ponytail: node setup is skipped until nvm exists. nvm vs mise is still an open
+# decision (see docs/setup-automation-plan.md); once settled, install it here.
+if [ -s ~/.nvm/nvm.sh ]; then
+    source ~/.nvm/nvm.sh
+    current_node=$(nvm current)
+    lts_version=$(nvm version-remote --lts)
+    if [ "$current_node" = "$lts_version" ]; then
+        info "Node LTS ($lts_version) already installed and active, skipping"
+    else
+        info "Installing latest node LTS..."
+        nvm install --lts
+        success "Done!"
+    fi
 else
-    info "Installing latest node LTS..."
-    nvm install --lts
-    success "Done!"
+    info "nvm not installed, skipping node setup"
 fi
 
 echo ""
 
-missing_packages=()
-while IFS= read -r package; do
-  [[ -z "$package" || "$package" =~ ^# ]] && continue
-  if ! npm list -g "$package" &>/dev/null; then
-    missing_packages+=("$package")
-  fi
-done < system/npm/global-packages
-
-if [ ${#missing_packages[@]} -eq 0 ]; then
-    info "All npm packages already installed, skipping"
+if ! command -v npm &>/dev/null; then
+    info "npm not available, skipping global npm packages"
 else
-    info "Installing missing global npm packages..."
-    for package in "${missing_packages[@]}"; do
-      npm install -g "$package"
-    done
-    success "Done!"
+    missing_packages=()
+    while IFS= read -r package; do
+      [[ -z "$package" || "$package" =~ ^# ]] && continue
+      if ! npm list -g "$package" &>/dev/null; then
+        missing_packages+=("$package")
+      fi
+    done < system/npm/global-packages
+
+    if [ ${#missing_packages[@]} -eq 0 ]; then
+        info "All npm packages already installed, skipping"
+    else
+        info "Installing missing global npm packages..."
+        for package in "${missing_packages[@]}"; do
+          npm install -g "$package"
+        done
+        success "Done!"
+    fi
 fi
 
 brew_repo="/opt/homebrew/.git"

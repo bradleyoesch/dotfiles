@@ -11,7 +11,7 @@ looped over, not hand-installed.
 
 ## Layout
 
-* `bin/` — verbs: `setup`, `install`, `update`, `doctor`, plus shared `lib.sh`
+* `bin/` — verbs: `bootstrap`, `setup`, `install`, `update`, `doctor`, plus shared `lib.sh`
 * `cli/` — shell tool configs (zsh, git, tmux, vim, glow)
 * `gui/` — app configs (iTerm2, Sublime, Karabiner, VLC)
 * `system/` — package manifests (brew, npm)
@@ -23,6 +23,7 @@ zsh config is split into files under `cli/zsh/`, symlinked into
 
 ## Setup commands
 
+* Fresh machine (Xcode CLT, brew, git, clone, setup): `bin/bootstrap`
 * Full machine setup: `bin/setup`
 * Symlinks only: `bin/install`
 * Update managed tools: `bin/update`

@@ -12,15 +12,19 @@ brew update
 brew bundle --file "$brewfile"                                 # install anything missing
 brew upgrade $(brew bundle list --file "$brewfile" --formula)  # only declared formulae; casks self-update
 
-info "Updating node LTS..."
-source ~/.nvm/nvm.sh
-nvm install --lts
+if [ -s ~/.nvm/nvm.sh ]; then
+  info "Updating node LTS..."
+  source ~/.nvm/nvm.sh
+  nvm install --lts
+fi
 
-info "Updating global npm packages..."
-while IFS= read -r package; do
-  [[ -z "$package" || "$package" =~ ^# ]] && continue
-  npm install -g "$package"
-done < "$DOTFILES_DIR/system/npm/global-packages"
+if command -v npm &>/dev/null; then
+  info "Updating global npm packages..."
+  while IFS= read -r package; do
+    [[ -z "$package" || "$package" =~ ^# ]] && continue
+    npm install -g "$package"
+  done < "$DOTFILES_DIR/system/npm/global-packages"
+fi
 
 info "Updating tmux plugin manager..."
 [[ -d ~/.tmux/plugins/tpm ]] && git -C ~/.tmux/plugins/tpm pull --ff-only
