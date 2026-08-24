@@ -1,0 +1,11 @@
+# starship.toml
+
+# PLACEHOLDER, not active yet. We're going to set this up later and aren't using it now.
+# ponytail: not wired up on purpose.
+#
+# To enable later:
+#   1. add `brew "starship"` to system/brew/Brewfile
+#   2. symlink this to ~/.config/starship.toml in install.conf.yaml
+#   3. add `eval "$(starship init zsh)"` to cli/zsh/.zshrc, replacing the oh-my-zsh prompt
+#
+# Wants to cover: is-it-a-git-dir, branch, dirty marker, dir name (worktree not needed).
