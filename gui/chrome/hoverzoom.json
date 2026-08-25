@@ -82,6 +82,7 @@
   "rightShortClickAndHold": false,
   "rotateImageKey": 82,
   "saveImageKey": 83,
+  "scrollWheelCooldown": "0",
   "showDetailContentLength": true,
   "showDetailDimensions": true,
   "showDetailDuration": true,

@@ -11,6 +11,12 @@
     "modifiedTime": "2024-01-17T18:49:28.482-06:00",
     "readability": false
   },
+  "sportsurge.ws": {
+    "css": "main {\n  margin: 0;\n  max-width: 100%;\n}\nmain > div > div {\n  width: 100%;\n}",
+    "enabled": true,
+    "modifiedTime": "2026-06-26T13:59:12.093-05:00",
+    "readability": false
+  },
   "typehere.cc": {
     "css": "#typingCanvas {\n  font-family: Monaco, \"Lucida Console\", \"Courier New\", monospace\n}",
     "enabled": true,
@@ -48,9 +54,9 @@
     "readability": false
   },
   "www.google.com": {
-    "css": "/* summary page */\n/* score */\n[data-attrid=\"TLOsrpMatchListSummary\"] td .imspo_mt__t-sc,\n/* winner triangle */\n[data-attrid=\"TLOsrpMatchListSummary\"] td .imspo_mt__triangle,\n/* cards */\n[data-attrid=\"TLOsrpMatchListSummary\"] td img.imspo_mt__tri {\n  display: none;\n}\n\n/* score */\n.liveresults-sports-immersive__match-tile\n.imspo_mt__t-sc,\n/* big score */\n.imso_mh__scr-sep,\n.imso_mh__score-sum,\n/* winner triangle */\n.liveresults-sports-immersive__match-tile\n.imspo_mt__triangle,\n/* cards */\n.liveresults-sports-immersive__match-tile\nimg[alt=\"Red cards\"],\n/* aggregate score */\n.imspo_mt__lg-st-co,\n.imso_mh__s-t-c\n{\n  visibility: hidden;\n}\n/* live standings */\n\n[data-attrid=\"TLOsrpMatchStandings\"] .Af9bid.b7GjXe.OPoCDe {\n  visibility: hidden;\n}\n\n/* hacky way to truncate penalty marker */\n.imspo_mt__match-status [aria-label=\"FT (P)\"] {\n  display: inline-block;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: hidden;\n  max-width: 15px;\n}",
+    "css": "/* summary page */\n/* score */\n[data-attrid=\"TLOsrpMatchListSummary\"] td .imspo_mt__t-sc,\n/* winner triangle */\n[data-attrid=\"TLOsrpMatchListSummary\"] td .imspo_mt__triangle,\n/* cards */\n[data-attrid=\"TLOsrpMatchListSummary\"] td svg {\n  display: none;\n}\n\n/* score */\n.liveresults-sports-immersive__match-tile\n.imspo_mt__t-sc,\n/* big score */\n.imso_mh__scr-sep,\n.imso_mh__score-sum,\n/* winner triangle */\n.liveresults-sports-immersive__match-tile\n.imspo_mt__triangle,\n/* cards */\n.liveresults-sports-immersive__match-tile\nimg[alt=\"Red cards\"],\n/* aggregate score */\n.imspo_mt__lg-st-co,\n.imso_mh__s-t-c\n{\n  visibility: hidden;\n}\n/* live standings */\n\n[data-attrid=\"TLOsrpMatchStandings\"] .Af9bid.b7GjXe.OPoCDe {\n  visibility: hidden;\n}\n\n/* hacky way to truncate penalty marker */\n.imspo_mt__match-status [aria-label=\"FT (P)\"] {\n  display: inline-block;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: hidden;\n  max-width: 15px;\n}",
     "enabled": true,
-    "modifiedTime": "2025-03-16T18:55:55.932-07:00",
+    "modifiedTime": "2026-08-23T17:15:04.585-05:00",
     "readability": false
   },
   "www.hollywoodreporter.com": {
@@ -75,6 +81,12 @@
     "css": "#video_container {\n  width:100%;\n  margin: 0;\n}",
     "enabled": true,
     "modifiedTime": "2021-09-11T20:05:02.437-05:00",
+    "readability": false
+  },
+  "www.nytimes.com": {
+    "css": "body {\n  position: relative;\n}\n\n[data-testid=\"onsite-messaging-unit-athleticGateway\"] {\n  display: none;\n}",
+    "enabled": true,
+    "modifiedTime": "2026-06-26T10:47:32.726-05:00",
     "readability": false
   },
   "www.reddit.com": {

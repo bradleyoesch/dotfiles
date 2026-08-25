@@ -1,18 +1,26 @@
 {
-  "version": "2026.208.2004",
-  "showBlockedCount": false,
   "filteringModes": {
+    "basic": [],
+    "complete": [],
     "none": [
       "www.carolinescooking.com",
       "drsnyder.com",
       "drive.usercontent.google.com",
       "writers.coverfly.com",
-      "www.eticketing.co.uk"
+      "www.eticketing.co.uk",
+      "www.homedepot.com",
+      "ndcdyn.interactivebrokers.com",
+      "access.tickets.fifa.com",
+      "www.3d-bbc.co.uk",
+      "www.acllive.com",
+      "www.axs.com",
+      "www.photopea.com",
+      "appointment.questdiagnostics.com"
     ],
-    "basic": [],
     "optimal": [
       "all-urls"
-    ],
-    "complete": []
-  }
+    ]
+  },
+  "showBlockedCount": false,
+  "version": "2026.820.1159"
 }
