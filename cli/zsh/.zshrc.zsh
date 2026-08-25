@@ -30,3 +30,16 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[OA' history-substring-search-up
 bindkey '^[OB' history-substring-search-down
+
+# WORDCHARS lists punctuation treated as part of a word (for word movement and
+# deletion). This is zsh's default minus _ - . /, so those all break
+# (snake_case, kebab-case, file.ext, path/seg all split); = and the rest stay.
+WORDCHARS='*?[]~=&;!#$%^(){}<>'
+
+# Option+Left/Right word movement. Needs iTerm2 "Option Key Sends: Esc+", which
+# makes ⌥← send ^[^[[D and ⌥→ send ^[^[[C (not bound by default). The ^[[1;3x
+# forms cover terminals that send option as a CSI modifier instead.
+bindkey '^[^[[C' forward-word
+bindkey '^[^[[D' backward-word
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;3D' backward-word
