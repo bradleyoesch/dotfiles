@@ -39,6 +39,12 @@
       force: true
     ~/Library/Application Support/Sublime Text/Packages/User/Default (OSX).sublime-keymap: gui/sublime/Default (OSX).sublime-keymap
     ~/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings: gui/sublime/Preferences.sublime-settings
+    ~/Library/Application Support/Sublime Text/Packages/User/Package Control.sublime-settings:
+      path: gui/sublime/Package Control.sublime-settings
+      force: true
+    ~/Library/Application Support/Sublime Text/Packages/User/MarkdownPreview.sublime-settings:
+      path: gui/sublime/MarkdownPreview.sublime-settings
+      force: true
 
 # Add source/include lines (idempotent - creates if missing, appends if exists)
 - ensure_lines:

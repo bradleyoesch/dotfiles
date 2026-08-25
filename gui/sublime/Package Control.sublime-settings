@@ -1,0 +1,19 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Babel",
+		"GraphQL",
+		"MarkdownPreview",
+		"Monokai++",
+		"Package Control",
+		"rainbow_csv",
+		"RainbowBrackets",
+		"SublimeCodeIntel",
+		"Terraform",
+		"Theme - Monokai Pro",
+	],
+}
