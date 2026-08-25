@@ -6,14 +6,14 @@ DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$DOTFILES_DIR"
 source "$DOTFILES_DIR/bin/lib.sh"
 
-# put brew on PATH for this run; interactive shells get PATH from cli/zsh/.zshrc
+# put brew on PATH for this run; interactive shells get PATH from config/zsh/.zshrc
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo ""
 
 mkdir -p ~/Applications
 
-# casks install into ~/Applications; export for this run (interactive shells get it from cli/zsh/.zshrc)
+# casks install into ~/Applications; export for this run (interactive shells get it from config/zsh/.zshrc)
 export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications"
 
 echo ""
@@ -53,7 +53,7 @@ else
       if ! npm list -g "$package" &>/dev/null; then
         missing_packages+=("$package")
       fi
-    done < system/npm/global-packages
+    done < config/npm/global-packages
 
     if [ ${#missing_packages[@]} -eq 0 ]; then
         info "All npm packages already installed, skipping"
@@ -87,7 +87,7 @@ fi
 
 info "Installing brew packages and casks..."
 brew trust --formula atlassian/acli/acli
-brew bundle --file system/brew/Brewfile
+brew bundle --file config/brew/Brewfile
 
 # codex: no brew/npm package; the installer both installs and updates it (bin/update re-runs it)
 if command -v codex &>/dev/null; then
@@ -110,12 +110,12 @@ else
 fi
 
 info "Updating VLC settings..."
-./gui/vlc/sync.sh import
+./config/vlc/sync.sh import
 success Done!
 
 echo ""
 
-iterm2_prefs="$(pwd)/gui/iterm2"
+iterm2_prefs="$(pwd)/config/iterm2"
 if [ "$(defaults read com.googlecode.iterm2 PrefsCustomFolder 2>/dev/null)" = "$iterm2_prefs" ]; then
     info "iTerm2 prefs folder already set, skipping"
 else

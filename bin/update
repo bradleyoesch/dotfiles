@@ -7,7 +7,7 @@ set -uo pipefail
 DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 source "$DOTFILES_DIR/bin/lib.sh"
 
-brewfile="$DOTFILES_DIR/system/brew/Brewfile"
+brewfile="$DOTFILES_DIR/config/brew/Brewfile"
 brew update
 brew bundle --file "$brewfile"                                 # install anything missing
 brew upgrade $(brew bundle list --file "$brewfile" --formula)  # only declared formulae; casks self-update
@@ -23,7 +23,7 @@ fi
 # ~/.nvm/default-packages, so there's no need to loop all installed versions.
 if [ -s ~/.nvm/nvm.sh ] && command -v npm &>/dev/null; then
   info "Updating default npm packages..."
-  pkgs=$(grep -vE '^[[:space:]]*(#|$)' "$DOTFILES_DIR/system/npm/global-packages" | tr '\n' ' ')
+  pkgs=$(grep -vE '^[[:space:]]*(#|$)' "$DOTFILES_DIR/config/npm/global-packages" | tr '\n' ' ')
   for v in $(printf '%s\n' "$(nvm version default)" "$(nvm current)" | sort -u); do
     [[ "$v" == none || "$v" == N/A || -z "$v" ]] && continue
     info "  $v"

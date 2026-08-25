@@ -54,16 +54,16 @@ Set up google account
 
 #### Extensions
 
-- Hover Zoom+ - import settings from [`gui/chrome/hoverzoom.json`](gui/chrome/hoverzoom.json)
+- Hover Zoom+ - import settings from [`config/chrome/hoverzoom.json`](config/chrome/hoverzoom.json)
   - To export: Extension Icon > Options > Advanced > Export
-  - `pbpaste | jq -S '.' > gui/chrome/hoverzoom.json`
+  - `pbpaste | jq -S '.' > config/chrome/hoverzoom.json`
 - LastPass - log in
 - RedditEnhancementSuite - import settings from Google Drive
-- Stylebot - import settings from [`gui/chrome/stylebot.json`](gui/chrome/stylebot.json)
+- Stylebot - import settings from [`config/chrome/stylebot.json`](config/chrome/stylebot.json)
   - To export: Extension Icon > Sync > Export
-  - `jq -S '.' ~/Downloads/stylebot_backup.json > gui/chrome/stylebot.json`
-- uBlock Origin Lite - import settings from [`gui/chrome/ublock.json`](gui/chrome/ublock.json)
-  - `jq -S '.' ~/Downloads/my-ubol-settings.json > gui/chrome/ublock.json`
+  - `jq -S '.' ~/Downloads/stylebot_backup.json > config/chrome/stylebot.json`
+- uBlock Origin Lite - import settings from [`config/chrome/ublock.json`](config/chrome/ublock.json)
+  - `jq -S '.' ~/Downloads/my-ubol-settings.json > config/chrome/ublock.json`
 
 #### Apps
 
@@ -72,14 +72,14 @@ Set up google account
 ### iTerm2
 
 Settings load automatically, `bin/setup` points iTerm2 at the custom prefs
-folder ([`gui/iterm2/`](gui/iterm2/)).
+folder ([`config/iterm2/`](config/iterm2/)).
 
 Set global hotkey:
 ``Preferences > Keys > Hotkey > cmd + opt + ` ``
 
 ### Rectangle
 
-Import settings from [`gui/rectangle/config.json`](gui/rectangle/config.json)
+Import settings from [`config/rectangle/config.json`](config/rectangle/config.json)
 - `cmd + space > Rectangle > Gear icon > Import (at bottom)`
 
 ### Spotify
@@ -103,7 +103,7 @@ Download and set up: https://transmissionbt.com/download.html
 
 Settings load automatically, `bin/setup` runs the import. To capture changes you make in VLC back into the repo:
 
-* `./gui/vlc/sync.sh export`
+* `./config/vlc/sync.sh export`
 
 ## TODO
 

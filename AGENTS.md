@@ -6,19 +6,17 @@ Guidance for AI coding agents working in this dotfiles repo.
 
 Personal macOS dotfiles. Symlinks are managed by dotbot via
 `install.conf.yaml`. Machine setup runs through `bin/setup`. Package sets are
-declared as data (`system/brew/Brewfile`, `system/npm/global-packages`) and
+declared as data (`config/brew/Brewfile`, `config/npm/global-packages`) and
 looped over, not hand-installed.
 
 ## Layout
 
 * `bin/` — verbs: `bootstrap`, `setup`, `install`, `update`, `doctor`, plus shared `lib.sh`
-* `cli/` — shell tool configs (zsh, git, tmux, vim, glow)
-* `gui/` — app configs (iTerm2, Sublime, Karabiner, VLC)
-* `system/` — package manifests (brew, npm)
+* `config/` — all tracked configs, one dir per tool/app (zsh, git, iTerm2, Sublime, …) plus package manifests (brew, npm)
 * `install.conf.yaml` — dotbot symlink + setup declarations
 * `docs/` — planning and design notes
 
-zsh config is split into files under `cli/zsh/`, symlinked into
+zsh config is split into files under `config/zsh/`, symlinked into
 `~/.config/dotfiles/`, and sourced from `~/.zshrc`.
 
 ## Setup commands
@@ -32,15 +30,15 @@ zsh config is split into files under `cli/zsh/`, symlinked into
 ## Conventions
 
 * Everything must be idempotent. Check-before-acting; re-running any script is safe.
-* Declare packages as data in `system/` manifests, then loop. Don't hand-write install lines.
+* Declare packages as data in `config/` manifests, then loop. Don't hand-write install lines.
 * New symlinks go in `install.conf.yaml`, not ad-hoc `ln` calls.
 * New tools go in the `Brewfile`, sorted within their section (brews, then casks).
 * Track package/extension *lists*, not the files those packages generate. When
   you install one, add it to the matching list:
   * brew — `Brewfile`
-  * npm globals — `system/npm/global-packages` (also symlinked as nvm's `default-packages`, so new node versions get them)
+  * npm globals — `config/npm/global-packages` (also symlinked as nvm's `default-packages`, so new node versions get them)
   * Sublime — `installed_packages` in Package Control settings
-  * Zed — `auto_install_extensions` in `gui/zed/settings.json`
+  * Zed — `auto_install_extensions` in `config/zed/settings.json`
 * Match the existing shell style in `bin/setup` (`info`/`success` helpers from `bin/lib.sh`, guard clauses).
 * `bin/doctor` derives package and symlink checks from the `Brewfile` and
   `install.conf.yaml`. Adding a bespoke `bin/setup` step means adding a matching

@@ -6,52 +6,52 @@
 
 # Symlink all configs to ~/.config/dotfiles/ (flat structure)
 - link:
-    ~/.config/dotfiles/.gitconfig: cli/git/.gitconfig
-    ~/.config/dotfiles/.zprofile: cli/zsh/.zprofile
-    ~/.config/dotfiles/.zshrc.aliases: cli/zsh/.zshrc.aliases
-    ~/.config/dotfiles/.zshrc.constants: cli/zsh/.zshrc.constants
-    ~/.config/dotfiles/.zshrc.functions: cli/zsh/.zshrc.functions
-    ~/.config/dotfiles/.zshrc.grep: cli/zsh/.zshrc.grep
-    ~/.config/dotfiles/.zshrc.zsh: cli/zsh/.zshrc.zsh
-    ~/.config/dotfiles/.zshrc.prompt: cli/zsh/.zshrc.prompt
+    ~/.config/dotfiles/.gitconfig: config/git/.gitconfig
+    ~/.config/dotfiles/.zprofile: config/zsh/.zprofile
+    ~/.config/dotfiles/.zshrc.aliases: config/zsh/.zshrc.aliases
+    ~/.config/dotfiles/.zshrc.constants: config/zsh/.zshrc.constants
+    ~/.config/dotfiles/.zshrc.functions: config/zsh/.zshrc.functions
+    ~/.config/dotfiles/.zshrc.grep: config/zsh/.zshrc.grep
+    ~/.config/dotfiles/.zshrc.zsh: config/zsh/.zshrc.zsh
+    ~/.config/dotfiles/.zshrc.prompt: config/zsh/.zshrc.prompt
     ~/.config/dotfiles/plugins/per-directory-history.zsh:
-      path: cli/zsh/plugins/per-directory-history.zsh
+      path: config/zsh/plugins/per-directory-history.zsh
       create: true
-    ~/.config/dotfiles/.zshrc: cli/zsh/.zshrc
+    ~/.config/dotfiles/.zshrc: config/zsh/.zshrc
 
 # Direct symlinks for app-specific locations
 - link:
-    ~/.config/karabiner/karabiner.json: gui/karabiner/karabiner.json
+    ~/.config/karabiner/karabiner.json: config/karabiner/karabiner.json
     ~/.config/zed/settings.json:
-      path: gui/zed/settings.json
+      path: config/zed/settings.json
       create: true
       force: true
     ~/.config/zed/keymap.json:
-      path: gui/zed/keymap.json
+      path: config/zed/keymap.json
       create: true
       force: true
-    ~/.tmux.conf: cli/tmux/.tmux.conf
-    ~/.vimrc: cli/vim/.vimrc
+    ~/.tmux.conf: config/tmux/.tmux.conf
+    ~/.vimrc: config/vim/.vimrc
     # nvm auto-installs these into every new node version (fixes globals
     # vanishing on node upgrades). Same file bin/setup/bin/update loop over.
     ~/.nvm/default-packages:
-      path: system/npm/global-packages
+      path: config/npm/global-packages
       create: true
     ~/Library/Preferences/glow/glow.yml:
-      path: cli/glow/glow.yml
+      path: config/glow/glow.yml
       create: true
       force: true
     ~/Library/Preferences/glow/monokai.json:
-      path: cli/glow/monokai.json
+      path: config/glow/monokai.json
       create: true
       force: true
-    ~/Library/Application Support/Sublime Text/Packages/User/Default (OSX).sublime-keymap: gui/sublime/Default (OSX).sublime-keymap
-    ~/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings: gui/sublime/Preferences.sublime-settings
+    ~/Library/Application Support/Sublime Text/Packages/User/Default (OSX).sublime-keymap: config/sublime/Default (OSX).sublime-keymap
+    ~/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings: config/sublime/Preferences.sublime-settings
     ~/Library/Application Support/Sublime Text/Packages/User/Package Control.sublime-settings:
-      path: gui/sublime/Package Control.sublime-settings
+      path: config/sublime/Package Control.sublime-settings
       force: true
     ~/Library/Application Support/Sublime Text/Packages/User/MarkdownPreview.sublime-settings:
-      path: gui/sublime/MarkdownPreview.sublime-settings
+      path: config/sublime/MarkdownPreview.sublime-settings
       force: true
 
 # Add source/include lines (idempotent - creates if missing, appends if exists)

@@ -38,11 +38,11 @@ installed_casks="$(brew list --cask -1 2>/dev/null)"
 while IFS= read -r name; do
   [[ -z "$name" ]] && continue
   check "brew $name" "grep -qx '${name##*/}' <<< \"\$installed_formulae\""
-done < <(sed -nE 's/^brew "([^"]+)".*/\1/p' "$DOTFILES_DIR/system/brew/Brewfile")
+done < <(sed -nE 's/^brew "([^"]+)".*/\1/p' "$DOTFILES_DIR/config/brew/Brewfile")
 while IFS= read -r name; do
   [[ -z "$name" ]] && continue
   check "cask $name" "grep -qx '${name##*/}' <<< \"\$installed_casks\""
-done < <(sed -nE 's/^cask "([^"]+)".*/\1/p' "$DOTFILES_DIR/system/brew/Brewfile")
+done < <(sed -nE 's/^cask "([^"]+)".*/\1/p' "$DOTFILES_DIR/config/brew/Brewfile")
 
 echo ""
 echo "==> Symlinks (from install.conf.yaml)"
@@ -71,7 +71,7 @@ check "tmux tpm installed" "test -d \"\$HOME/.tmux/plugins/tpm\""
 check "vim-sensible installed" "test -d \"\$HOME/.vim/pack/tpope/start/sensible\""
 check "codex installed" "command -v codex"
 check "subl symlink exists" "test -L /usr/local/bin/subl"
-check "iTerm2 custom prefs set" "test \"\$(defaults read com.googlecode.iterm2 PrefsCustomFolder 2>/dev/null)\" = '$DOTFILES_DIR/gui/iterm2'"
+check "iTerm2 custom prefs set" "test \"\$(defaults read com.googlecode.iterm2 PrefsCustomFolder 2>/dev/null)\" = '$DOTFILES_DIR/config/iterm2'"
 
 echo ""
 if [[ $fail -eq 0 ]]; then
