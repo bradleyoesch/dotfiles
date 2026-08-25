@@ -49,7 +49,6 @@
 [alias]
 	aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /' | sort -u | less
 
-    omr = open-mr
     # changes stuff
     co = checkout
     diffc = diff --cached
@@ -58,6 +57,7 @@
 
 	# branch stuff
     br = branch
+    # verbose branch list: HEAD marker, colored branch name, last commit subject, author, relative date
     brv = branch --format='%(HEAD) %(if)%(HEAD)%(then)%(color:green)%(end)%(refname:short)%(if)%(HEAD)%(then)%(else)%(color:dim)%(end)%(color:white) - %(contents:subject) %(color:cyan)[%(authorname)] %(color:yellow)(%(committerdate:relative))'
     cb = !git branch --merged | egrep -v '(^\\*|master|main)' | xargs git branch -d
 
@@ -69,10 +69,6 @@
     undo = reset HEAD~
 
     # squash stuff
-    asq = "!sh -c 'git rebase --autosquash HEAD~${1:-5}' -"
-    autosquash = rebase --autosquash
-    cmf = commit --fixup=HEAD
-    cmsq = commit --fixup=HEAD
     rbi = "!sh -c 'git rebase -i HEAD~${1}' -"
     sq = commit --fixup=HEAD
 
@@ -105,24 +101,3 @@
 # https://github.com/sjurba/rebase-editor
 [sequence]
     editor = rebase-editor
-
-# [color]
-#     ui = auto
-# [color "branch"]
-#     current = yellow reverse
-#     local = yellow
-#     remote = green
-# [color "diff"]
-#     meta = yellow bold
-#     frag = magenta bold
-#     old = red bold
-#     new = green bold
-# [color "status"]
-#     added = yellow
-#     changed = green
-#     untracked = cyan
-# [color "diff-highlight"]
-#     oldNormal = red bold
-#     oldHighlight = red bold 52
-#     newNormal = green bold
-#     newHighlight = green bold 22
