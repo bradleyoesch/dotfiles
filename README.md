@@ -101,12 +101,9 @@ Download and set up: https://transmissionbt.com/download.html
 
 ### VLC
 
-Settings load automatically, `bin/setup` runs the import. To capture changes
-you make in VLC back into the repo:
+Settings load automatically, `bin/setup` runs the import. To capture changes you make in VLC back into the repo:
 
-```bash
-./gui/vlc/sync.sh export
-```
+* `./gui/vlc/sync.sh export`
 
 ## Contents
 
