@@ -35,6 +35,12 @@ zsh config is split into files under `cli/zsh/`, symlinked into
 * Declare packages as data in `system/` manifests, then loop. Don't hand-write install lines.
 * New symlinks go in `install.conf.yaml`, not ad-hoc `ln` calls.
 * New tools go in the `Brewfile`, sorted within their section (brews, then casks).
+* Track package/extension *lists*, not the files those packages generate. When
+  you install one, add it to the matching list:
+  * brew — `Brewfile`
+  * npm globals — `system/npm/global-packages` (also symlinked as nvm's `default-packages`, so new node versions get them)
+  * Sublime — `installed_packages` in Package Control settings
+  * Zed — `auto_install_extensions` in `gui/zed/settings.json`
 * Match the existing shell style in `bin/setup` (`info`/`success` helpers from `bin/lib.sh`, guard clauses).
 * `bin/doctor` derives package and symlink checks from the `Brewfile` and
   `install.conf.yaml`. Adding a bespoke `bin/setup` step means adding a matching
