@@ -4,20 +4,19 @@
 # prompt no longer depends on oh-my-zsh (which we dropped). A few deliberate
 # changes from the original robbyrussell:
 #   * no "git:" prefix on the branch
-#   * dirty check removed; the trailing "$" is always shown (just a prompt symbol)
+#   * dirty check removed; no trailing marker
 #   * shows in-progress git operations, which robbyrussell never did
 #
 # What it looks like:
-#   ➜  <dir> (<branch>) $
-#   ➜  <dir> (<tag>) $                     detached on an exact tag
-#   ➜  <dir> (<sha>) $                     detached, no tag
-#   ➜  <dir> (<branch>:<sha>:2/5) $        mid-rebase: orig branch, commit being applied, step n/m
-#   ➜  <dir> (<branch>:merge) $            mid-merge / cherry-pick / revert
+#   ➜  <dir> (<branch>)
+#   ➜  <dir> (<tag>)                     detached on an exact tag
+#   ➜  <dir> (<sha>)                     detached, no tag
+#   ➜  <dir> (<branch>:<sha>:2/5)        mid-rebase: orig branch, commit being applied, step n/m
+#   ➜  <dir> (<branch>:merge)            mid-merge / cherry-pick / revert
 #
 # Everything inside the parens is "branch" followed by zero or more ":field"
 # extras. Colors: arrow green(ok)/red(fail), dir cyan, parens blue, colons cyan,
-# branch/ref red, each extra field magenta, trailing "$" bold yellow
-# (robbyrussell's ✗ color).
+# branch/ref red, each extra field magenta.
 #
 # zsh prompt mechanics: PROMPT_SUBST (set below) re-runs $(...) every prompt, so
 # _prompt_git_info is evaluated fresh each time. %{...%} wraps the color escapes
@@ -75,5 +74,5 @@ _prompt_git_info() {
   print -n " %{$fg_bold[blue]%}(%{$fg[red]%}${ref}${sep}%{$fg_bold[blue]%})%{$reset_color%}"
 }
 
-# arrow (green ok / red fail) + cyan dir basename + git segment + always-yellow "$"
-PROMPT='%(?:%{$fg_bold[green]%}➜:%{$fg_bold[red]%}➜) %{$fg[cyan]%}%c%{$reset_color%}$(_prompt_git_info) %{$fg_bold[yellow]%}$%{$reset_color%} '
+# arrow (green ok / red fail) + cyan dir basename + git segment
+PROMPT='%(?:%{$fg_bold[green]%}➜:%{$fg_bold[red]%}➜) %{$fg[cyan]%}%c%{$reset_color%}$(_prompt_git_info) '
