@@ -25,10 +25,3 @@ export NVM_DIR="$HOME/.nvm"
 # iterm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# # zsh integration, order matters
-# source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-# bindkey '^[OA' history-substring-search-up
-# bindkey '^[OB' history-substring-search-down
-
