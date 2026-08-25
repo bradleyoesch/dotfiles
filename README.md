@@ -105,6 +105,12 @@ Settings load automatically, `bin/setup` runs the import. To capture changes you
 
 * `./gui/vlc/sync.sh export`
 
+## TODO
+
+* `.claude` — set up and track Claude Code config
+* `.agents` — set up and track agents config
+* agent-zero — set up agent-zero
+
 ## Contents
 
 To view all relevant files and directories in this repo, run `tree`:
