@@ -15,15 +15,20 @@ brew upgrade $(brew bundle list --file "$brewfile" --formula)  # only declared f
 if [ -s ~/.nvm/nvm.sh ]; then
   info "Updating node LTS..."
   source ~/.nvm/nvm.sh
-  nvm install --lts
+  nvm install --lts   # any new LTS auto-gets ~/.nvm/default-packages
 fi
 
-if command -v npm &>/dev/null; then
-  info "Updating global npm packages..."
-  while IFS= read -r package; do
-    [[ -z "$package" || "$package" =~ ^# ]] && continue
-    npm install -g "$package"
-  done < "$DOTFILES_DIR/system/npm/global-packages"
+# Refresh the default (nvm) packages, but only in the node versions we use day to
+# day (default + current). New versions get them automatically via
+# ~/.nvm/default-packages, so there's no need to loop all installed versions.
+if [ -s ~/.nvm/nvm.sh ] && command -v npm &>/dev/null; then
+  info "Updating default npm packages..."
+  pkgs=$(grep -vE '^[[:space:]]*(#|$)' "$DOTFILES_DIR/system/npm/global-packages" | tr '\n' ' ')
+  for v in $(printf '%s\n' "$(nvm version default)" "$(nvm current)" | sort -u); do
+    [[ "$v" == none || "$v" == N/A || -z "$v" ]] && continue
+    info "  $v"
+    nvm exec "$v" npm install -g $pkgs
+  done
 fi
 
 info "Updating tmux plugin manager..."

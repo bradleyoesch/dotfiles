@@ -24,6 +24,11 @@
     ~/.config/karabiner/karabiner.json: gui/karabiner/karabiner.json
     ~/.tmux.conf: cli/tmux/.tmux.conf
     ~/.vimrc: cli/vim/.vimrc
+    # nvm auto-installs these into every new node version (fixes globals
+    # vanishing on node upgrades). Same file bin/setup/bin/update loop over.
+    ~/.nvm/default-packages:
+      path: system/npm/global-packages
+      create: true
     ~/Library/Preferences/glow/glow.yml:
       path: cli/glow/glow.yml
       create: true
