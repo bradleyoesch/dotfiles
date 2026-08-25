@@ -31,6 +31,11 @@ if [ -s ~/.nvm/nvm.sh ] && command -v npm &>/dev/null; then
   done
 fi
 
+if command -v codex &>/dev/null; then
+  info "Updating codex..."
+  curl -fsSL https://chatgpt.com/codex/install.sh | sh
+fi
+
 info "Updating tmux plugin manager..."
 [[ -d ~/.tmux/plugins/tpm ]] && git -C ~/.tmux/plugins/tpm pull --ff-only
 

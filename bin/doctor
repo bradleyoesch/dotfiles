@@ -69,6 +69,7 @@ check "nvm installed" "test -s \"\$HOME/.nvm/nvm.sh\""
 check "node active" "command -v node"
 check "tmux tpm installed" "test -d \"\$HOME/.tmux/plugins/tpm\""
 check "vim-sensible installed" "test -d \"\$HOME/.vim/pack/tpope/start/sensible\""
+check "codex installed" "command -v codex"
 check "subl symlink exists" "test -L /usr/local/bin/subl"
 check "iTerm2 custom prefs set" "test \"\$(defaults read com.googlecode.iterm2 PrefsCustomFolder 2>/dev/null)\" = '$DOTFILES_DIR/gui/iterm2'"
 
