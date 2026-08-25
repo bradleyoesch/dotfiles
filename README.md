@@ -56,14 +56,14 @@ Set up google account
 
 - Hover Zoom+ - import settings from [`gui/chrome/hoverzoom.json`](gui/chrome/hoverzoom.json)
   - To export: Extension Icon > Options > Advanced > Export
-  - `echo '<JSON>' | jq -S '.' > gui/chrome/hoverzoom.json`
+  - `pbpaste | jq -S '.' > gui/chrome/hoverzoom.json`
 - LastPass - log in
 - RedditEnhancementSuite - import settings from Google Drive
-- SetupVPN - log in
 - Stylebot - import settings from [`gui/chrome/stylebot.json`](gui/chrome/stylebot.json)
   - To export: Extension Icon > Sync > Export
   - `jq -S '.' ~/Downloads/stylebot_backup.json > gui/chrome/stylebot.json`
 - uBlock Origin Lite - import settings from [`gui/chrome/ublock.json`](gui/chrome/ublock.json)
+  - `jq -S '.' ~/Downloads/my-ubol-settings.json > gui/chrome/ublock.json`
 
 #### Apps
 
@@ -75,7 +75,7 @@ Settings load automatically, `bin/setup` points iTerm2 at the custom prefs
 folder ([`gui/iterm2/`](gui/iterm2/)).
 
 Set global hotkey:
-`Preferences > Keys > Hotkey > cmd + opt + `
+``Preferences > Keys > Hotkey > cmd + opt + ` ``
 
 ### Rectangle
 
