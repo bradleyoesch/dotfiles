@@ -22,6 +22,14 @@
 # Direct symlinks for app-specific locations
 - link:
     ~/.config/karabiner/karabiner.json: gui/karabiner/karabiner.json
+    ~/.config/zed/settings.json:
+      path: gui/zed/settings.json
+      create: true
+      force: true
+    ~/.config/zed/keymap.json:
+      path: gui/zed/keymap.json
+      create: true
+      force: true
     ~/.tmux.conf: cli/tmux/.tmux.conf
     ~/.vimrc: cli/vim/.vimrc
     # nvm auto-installs these into every new node version (fixes globals

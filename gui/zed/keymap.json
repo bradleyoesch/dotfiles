@@ -1,0 +1,165 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    },
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-shift-x": "zed::Extensions",
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-shift-x": "editor::DeleteLine",
+    },
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "cmd-shift-k": "editor::DeleteLine",
+    },
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-shift-tab": [
+        "tab_switcher::Toggle",
+        {
+          "select_last": true,
+        },
+      ],
+    },
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-tab": "tab_switcher::Toggle",
+    },
+  },
+  {
+    "context": "Pane",
+    "unbind": {
+      "cmd-{": "pane::ActivatePreviousItem",
+    },
+  },
+  {
+    "context": "Pane",
+    "unbind": {
+      "cmd-}": "pane::ActivateNextItem",
+    },
+  },
+  {
+    "bindings": {
+      "ctrl-tab": "pane::ActivateNextItem"
+    }
+  },
+  {
+    "unbind": {
+      "cmd-}": "pane::ActivateNextItem"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-shift-tab": "pane::ActivatePreviousItem"
+    }
+  },
+  {
+    "unbind": {
+      "cmd-{": "pane::ActivatePreviousItem"
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "cmd-shift-l": "editor::SelectAllMatches"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-shift-l": "editor::SplitSelectionIntoLines"
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "alt-shift-g": "editor::SplitSelectionIntoLines"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-shift-d": "debug_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-shift-d": "editor::DuplicateSelection"
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "cmd-d": "editor::DuplicateSelection"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "alt-shift-c": "workspace::CopyRelativePath"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "unbind": {
+      "alt-cmd-shift-c": "workspace::CopyRelativePath"
+    }
+  },
+  {
+    "context": "OutlinePanel && not_editing",
+    "bindings": {
+      "alt-shift-c": "workspace::CopyRelativePath"
+    }
+  },
+  {
+    "context": "OutlinePanel && not_editing",
+    "unbind": {
+      "alt-cmd-shift-c": "workspace::CopyRelativePath"
+    }
+  },
+  {
+    "bindings": {
+      "alt-shift-c": "editor::CopyRelativePath"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "cmd-enter": "search::SelectPreviousMatch"
+    }
+  },
+  {
+    "context": "Pane",
+    "unbind": {
+      "cmd-shift-g": "search::SelectPreviousMatch"
+    }
+  }
+]
