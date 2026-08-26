@@ -51,6 +51,7 @@
 
     # changes stuff
     co = checkout
+    dif = diff
     diffc = diff --cached
     patch = !git --no-pager diff --no-color
     st = status
