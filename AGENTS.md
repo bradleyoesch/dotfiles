@@ -43,6 +43,12 @@ zsh config is split into files under `config/zsh/`, symlinked into
 * `bin/doctor` derives package and symlink checks from the `Brewfile` and
   `install.conf.yaml`. Adding a bespoke `bin/setup` step means adding a matching
   check to the "bespoke steps" section of `bin/doctor` by hand.
+* Karabiner doesn't auto-reload `config/karabiner/karabiner.json`. It watches
+  `~/.config/karabiner/`, so writing through the dotbot symlink fires no event there and
+  the daemon can keep running a stale config for weeks.
+  * Restart it after editing: `launchctl kickstart -k gui/$(id -u)/org.pqrs.service.agent.karabiner_console_user_server`
+  * Nothing gets logged on reload, so confirm with the restarted process's start time.
+  * Lint rules before restarting: `karabiner_cli --lint-complex-modifications` on a file shaped `{"title": ..., "rules": [...]}`. It catches bad key codes, not just bad JSON.
 
 ## Commit guidelines
 

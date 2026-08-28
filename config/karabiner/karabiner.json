@@ -91,6 +91,22 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "Press semicolon and quote together to type y",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "simultaneous": [
+                                        { "key_code": "semicolon" },
+                                        { "key_code": "quote" }
+                                    ]
+                                },
+                                "parameters": { "basic.simultaneous_threshold_milliseconds": 100 },
+                                "to": [{ "key_code": "y" }],
+                                "type": "basic"
+                            }
+                        ]
                     }
                 ]
             },
