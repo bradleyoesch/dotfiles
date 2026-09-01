@@ -50,6 +50,23 @@ Add ssh key:
 
 ### Google Chrome
 
+Deliberately not in the Brewfile. MDM and Chrome's own updater relocate the app,
+so brew ends up tracking a path that no longer exists. Install it by hand if you
+want brew to manage it anyway:
+
+```bash
+brew install --cask google-chrome
+```
+
+Add `--force` when Chrome is already in `/Applications`, since brew won't
+overwrite an app it didn't put there. To hand it back to MDM later, drop the
+Caskroom entry rather than running `brew uninstall --cask`, which deletes the app
+itself:
+
+```bash
+rm -rf "$(brew --caskroom)/google-chrome"
+```
+
 Set up google account
 
 #### Extensions

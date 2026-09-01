@@ -23,8 +23,9 @@ brew "zsh-history-substring-search"
 brew "zsh-syntax-highlighting"
 
 #'brew install --cask'
+# Company-managed apps (Chrome, OrbStack) stay out. MDM and their own updaters
+# relocate them, which leaves brew tracking a path that no longer exists.
 cask "claude-code"
-cask "google-chrome"
 cask "iterm2"
 cask "karabiner-elements"
 cask "meetingbar"
