@@ -11,13 +11,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo ""
 
-mkdir -p ~/Applications
-
-# casks install into ~/Applications; export for this run (interactive shells get it from config/zsh/.zshrc)
-export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications"
-
-echo ""
-
 # nvm (not brew): Indeed's .indeed/*.sh scripts expect it at ~/.nvm.
 # PROFILE=/dev/null so the installer doesn't append its own lines to ~/.zshrc,
 # our .zshrc already sources nvm.
@@ -103,7 +96,7 @@ info "Linking dotfiles..."
 
 if [ ! -L /usr/local/bin/subl ]; then
     info "Symlinking Sublime to subl..."
-    sudo ln -sf ~/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+    sudo ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
     success "Done!"
 else
     info "subl symlink already exists, skipping"

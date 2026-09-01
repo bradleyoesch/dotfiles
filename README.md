@@ -36,7 +36,7 @@ exec zsh
 ## Applications
 
 ```bash
-open ~/Applications
+open /Applications
 ```
 
 ### FileZilla
