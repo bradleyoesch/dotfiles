@@ -46,7 +46,9 @@ zsh config is split into files under `config/zsh/`, symlinked into
 * Karabiner doesn't auto-reload `config/karabiner/karabiner.json`. It watches
   `~/.config/karabiner/`, so writing through the dotbot symlink fires no event there and
   the daemon can keep running a stale config for weeks.
-  * Restart it after editing: `launchctl kickstart -k gui/$(id -u)/org.pqrs.service.agent.karabiner_console_user_server`
+  * Restart it after editing:
+    `launchctl kickstart -k gui/$(id -u)/org.pqrs.service.agent.Karabiner-Console-User-Server`
+    and `launchctl kickstart -k gui/$(id -u)/org.pqrs.service.agent.Karabiner-Core-Service-rev2`
   * Nothing gets logged on reload, so confirm with the restarted process's start time.
   * Lint rules before restarting: `karabiner_cli --lint-complex-modifications` on a file shaped `{"title": ..., "rules": [...]}`. It catches bad key codes, not just bad JSON.
 
