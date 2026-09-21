@@ -39,6 +39,18 @@ exec zsh
 open /Applications
 ```
 
+### Codex
+
+Codex doesn't support including a separate TOML snippet. The app also writes
+other settings to `~/.codex/config.toml`, so keep that file outside this repo.
+
+To restore the tracked status line:
+
+* Open `config/codex/tui.toml` and `~/.codex/config.toml`.
+* If `[tui]` exists, copy the two settings under that heading and replace matching settings.
+* Otherwise, append the complete contents of `config/codex/tui.toml`.
+* Restart Codex.
+
 ### FileZilla
 
 Download and set up: https://filezilla-project.org/download.php?platform=osx
