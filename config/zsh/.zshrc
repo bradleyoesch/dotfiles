@@ -23,3 +23,13 @@ export NVM_DIR="$HOME/.nvm"
 # iterm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# planderson completions
+test -e "${HOME}/.planderson/completions/planderson.zsh" && source "${HOME}/.planderson/completions/planderson.zsh"
+
+# machine-local overrides and secrets, not versioned. keep last so it wins.
+test -e "${HOME}/.zshrc.local" && source "${HOME}/.zshrc.local"
