@@ -59,3 +59,16 @@ function git_main_branch() {
   echo master
   return 1
 }
+
+# keep the mac awake: coffee 30m | coffee 1h | coffee 90 (bare = minutes)
+# anything not starting with a digit is passed straight through to caffeinate
+coffee() {
+  integer s   # truncates 1.5h
+  case $1 in
+    [0-9]*h) s=$(( ${1%h} * 3600 ));;
+    [0-9]*)  s=$(( ${1%m} * 60 ));;
+    *) caffeinate "$@"; return;;
+  esac
+  print "☕️ until $(date -v+${s}S '+%-l:%M%p' | tr 'APM' 'apm')"
+  caffeinate -d -u -t $s "${@:2}"
+}
