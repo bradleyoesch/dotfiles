@@ -38,6 +38,7 @@ alias ga='git add -A && git status'
 alias gb='git brv'
 alias gcm='git checkout $(git_main_branch) && gb'
 alias gpom='git pull origin $(git_main_branch)'
+alias gporm='git pull --rebase origin $(git_main_branch)'
 alias gs='git status'
 alias gss='git stash && git stash pop'
 
