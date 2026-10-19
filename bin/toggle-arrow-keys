@@ -1,0 +1,73 @@
+#!/usr/bin/env zsh
+# Toggle the Karabiner rule that disables bare arrow keys, then restart Karabiner.
+
+set -euo pipefail
+
+DOTFILES_DIR="${0:A:h:h}"  # :A resolves the ~/.local/bin symlink
+source "$DOTFILES_DIR/bin/lib.sh"
+
+config="$DOTFILES_DIR/config/karabiner/karabiner.json"
+
+# Must match the file byte for byte, so removing it leaves valid JSON.
+block=$(cat <<'EOF'
+                    {
+                        "description": "Disable bare arrow keys (use ctrl+hjkl instead; shift/option/command combos pass through)",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "left_arrow" },
+                                "to": [{ "key_code": "vk_none" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "down_arrow" },
+                                "to": [{ "key_code": "vk_none" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "up_arrow" },
+                                "to": [{ "key_code": "vk_none" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "right_arrow" },
+                                "to": [{ "key_code": "vk_none" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+EOF
+)
+# The block goes back in right before the ctrl+hjkl rule.
+anchor=$(cat <<'EOF'
+                    {
+                        "description": "Ctrl+h/j/k/l to left/down/up/right",
+EOF
+)
+
+die() { error "$1"; exit 1; }
+
+[[ -r "$config" && -w "$config" ]] || die "Can't read and write $config"
+content=$(<"$config")
+
+# State comes from the description, so a reformatted rule errors out
+# instead of looking absent and getting a second copy inserted.
+rules=$(grep -cF '"description": "Disable bare arrow keys' "$config" || true)
+if (( rules > 1 )); then
+  die "Found $rules arrow-key rules in $config, remove the extras by hand"
+elif (( rules == 1 )); then
+  [[ "$content" == *"$block"* ]] || die "Arrow-key rule in $config doesn't match the block in $0, update one to match the other"
+  content=${content/$block$'\n'/}
+  state=on
+else
+  [[ "$content" == *"$anchor"* ]] || die "Can't find the ctrl+hjkl rule in $config to insert the arrow-key rule before"
+  content=${content/$anchor/$block$'\n'$anchor}
+  state=off
+fi
+print -rn -- "$content" > "$config" || die "Couldn't write $config"
+
+for service in Karabiner-Console-User-Server Karabiner-Core-Service-rev2; do
+  launchctl kickstart -k "gui/$(id -u)/org.pqrs.service.agent.$service" \
+    || die "Toggled arrow keys $state in $config, but couldn't restart $service. Quit and reopen Karabiner-Elements to restart Karabiner"
+done
+
+printf "Arrow keys: ${BOLD}%s${RESET}\n" "$state"

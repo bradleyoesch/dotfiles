@@ -4,9 +4,9 @@
 
 # Emit color only to a real terminal; honor the NO_COLOR convention.
 if [[ -t 1 && -z "${NO_COLOR:-}" ]]; then
-  GREEN=$'\033[1;32m'; RED=$'\033[1;31m'; CYAN=$'\033[0;36m'; RESET=$'\033[0m'
+  BOLD=$'\033[1m'; GREEN=$'\033[1;32m'; RED=$'\033[1;31m'; CYAN=$'\033[0;36m'; RESET=$'\033[0m'
 else
-  GREEN=''; RED=''; CYAN=''; RESET=''
+  BOLD=''; GREEN=''; RED=''; CYAN=''; RESET=''
 fi
 
 info()    { printf "${CYAN}>>>>> %s <<<<<${RESET}\n" "$1"; }        # step starting
