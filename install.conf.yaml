@@ -30,6 +30,9 @@
       path: config/zed/keymap.json
       create: true
       force: true
+    ~/.local/bin/toggle-arrow-keys:
+      path: bin/toggle-arrow-keys
+      create: true
     ~/.tmux.conf: config/tmux/.tmux.conf
     ~/.vimrc: config/vim/.vimrc
     # nvm auto-installs these into every new node version (fixes globals
