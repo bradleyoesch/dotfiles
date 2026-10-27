@@ -9,7 +9,7 @@
     "ensure_newline_at_eof_on_save": false,
     "font_size": 13,
     "highlight_modified_tabs": true,
-    "index_files": true,
+    "index_files": false,
     "ignored_packages":
     [
         "Vintage",
